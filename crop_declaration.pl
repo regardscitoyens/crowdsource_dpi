@@ -3,10 +3,19 @@ $pdf = shift;
 $fileprefix = $pdf;
 $fileprefix =~ s/.pdf//;
 
+$first = shift;
+$last = shift;
+
 system("convert -density 300 $pdf $fileprefix.jpg");
 
-@crop = ('35%,15%,50%', '5%,35%,28%,28%,5%','5%,36%,49%,10%', '5%,32%,27%,28%,5%', '5%,32%,26%,32%,2%', '5%,28%,67%');
-for($i = $first*1 ; $i <= $#crop ; $i++) {
+#Parlementaire
+#@crop = ('35%,15%,50%', '5%,35%,28%,28%,5%','5%,36%,49%,10%', '5%,32%,27%,28%,5%', '5%,32%,26%,32%,2%', '5%,28%,67%');
+
+#Ministres
+@crop = ('30%,21%,49%', '5%,31%,59%,5%','5%,49%,41%,5%', '5%,42%,43%,10%', '5%,45%,45%,5%', '5%,50%,40%,5%');
+$last = $last || $#crop;
+
+for($i = $first*1 ; $i <= $last ; $i++) {
     $size = 0; $y = 0;
     @positions = split ',', $crop[$i];
     $tmpdir = '.tmp/';
