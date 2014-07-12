@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numérisons les déclarations d'intérêts des parlementaires</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jquery.fs.zoomer.css" rel="stylesheet">
+<link href="data:text/css;charset=utf-8," data-href="css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+<style>
+.declaration { height: 400px; width: 100%; }
+</style>
+</head>
+<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bootstrap theme</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container" role="main">
+      <div class="jumbotron">
+        <h1>Numérisons les intérêts des parlementaires</h1>
+	<p>Pour que ces informations essentielles à la démocratie soient accessibles en Open Data</p>
+        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+      </div>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+      <div class="declaration">
+	<img src="test delaration/fabius-laurent-di-gouvernement-mask-3_2.jpg"/>
+      </div>
+      <div class="numerise">
+<form class="form-horizontal" role="form">
+<table class="table">
+  <tr><th></th><th class="text-center">Identification <br/>de la societe</th><th class="text-center">Evaluation de la <br/>participation financière</th><th class="text-center">Rémunération ou <br/>gratification perçue</th></tr>
+  <tr>
+    <td class="col-md-1">#1</td>
+    <td class="col-md-3"><input class="form-control" id="societe" placeholder="nom de la société"/></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="participation" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="remuneration" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div> <div class="input-group"><select class="form-control"><option>net/mois</option><option>net/ans</option><option>brut/mois</option><option>net/ans</option></select></div></td>
+    <td class="col-md-1"></td>
+  </tr>
+  <tr>
+    <td class="col-md-1">#2</td>
+    <td class="col-md-3"><input class="form-control" id="societe" placeholder="nom de la société"/></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="participation" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="remuneration" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div> <div class="input-group"><select class="form-control"><option>net/mois</option><option>net/ans</option><option>brut/mois</option><option>net/ans</option></select></div></td>
+    <td class="col-md-1"></td>
+  </tr>
+  <tr>
+    <td class="col-md-1">#3</td>
+    <td class="col-md-3"><input class="form-control" id="societe" placeholder="nom de la société"/></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="participation" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="remuneration" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div> <div class="input-group"><select class="form-control"><option>net/mois</option><option>net/ans</option><option>brut/mois</option><option>net/ans</option></select></div></td>
+    <td class="col-md-1"></td>
+  </tr>
+  <tr>
+    <td class="col-md-1">#4</td>
+    <td class="col-md-3"><input class="form-control" id="societe" placeholder="nom de la société"/></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="participation" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="remuneration" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div> <div class="input-group"><select class="form-control"><option>net/mois</option><option>net/ans</option><option>brut/mois</option><option>net/ans</option></select></div></td>
+    <td class="col-md-1"></td>
+  </tr>
+  <tr>
+    <td class="col-md-1">#5</td>
+    <td class="col-md-3"><input class="form-control" id="societe" placeholder="nom de la société"/></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="participation" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="remuneration" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div> <div class="input-group"><select class="form-control"><option>net/mois</option><option>net/ans</option><option>brut/mois</option><option>net/ans</option></select></div></td>
+    <td class="col-md-1"></td>
+  </tr>
+  <tr>
+    <td class="col-md-1">#6</td>
+    <td class="col-md-3"><input class="form-control" id="societe" placeholder="nom de la société"/></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="participation" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div></td>
+    <td class="col-md-3 form-inline text-right"><div class="input-group"><input size=4 id="remuneration" type="text" pattern="[0-9]+" class="form-control"/><div class="input-group-addon">€</div></div> <div class="input-group"><select class="form-control"><option>net/mois</option><option>net/ans</option><option>brut/mois</option><option>net/ans</option></select></div></td>
+    <td class="col-md-1"><input type="submit" value="+" class="btn btn-primary"/></td>
+  </tr>
+</table>
+</form>
+<div class="row">
+  <div class="col-md-12 text-right form-inline"><button type="button" class="form-control btn btn-success">Enregistrer</button> <button type="button" class="form-control btn btn-danger">Informer d'une incohérence</button> <button type="button" class="form-control btn btn-link">Passer</button> </div>
+</div>
+      </div>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.fs.zoomer.min.js"></script>
+<script>
+    $(".declaration").zoomer({'marginMax': 10});
+    $(".declaration").zoomer("pan", 50, 50);
+</script>
+  </body>
+</html>
