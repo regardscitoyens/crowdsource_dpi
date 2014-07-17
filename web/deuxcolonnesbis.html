@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numérisons les déclarations d'intérêts des parlementaires</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jquery.fs.zoomer.css" rel="stylesheet">
+<link href="css/datepicker.css" rel="stylesheet">
+<link href="data:text/css;charset=utf-8," data-href="css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+<style>
+.declaration{background: gray; padding: 10px;}
+.middlecenter {display:table-cell; vertical-align:middle !important; float:none;}
+</style>
+</head>
+<body>
+    <div class="container-fluid" role="main">
+      <div class="jumbotron">
+        <h1>Numérisons les intérêts des parlementaires</h1>
+	<p>Pour que ces informations essentielles à la démocratie soient accessibles en Open Data</p>
+        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+      </div>
+<div class="row">
+      <div class="col-md-1"><img class="img-circle" src="http://www.nosdeputes.fr/depute/photo/christian-eckert/160"/></div>
+      <div class="col-md-11">
+	<h1>Les fonctions et mandats de Christian Eckert</h1>
+
+	<p>Dans la partie gauche de l'écran ci-dessous, la section « fonctions et mandats électifs » de Christian Eckert est reproduite. Nous vous invitons à la saisir en suivant les instructions proposées dans la partie droite de l'application. Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur « Signaler un problème », nous vous proposerons la section d'une autre déclaration à saisir.</p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-6 declaration">
+	<img width="100%" src="img/eckert-christian-di-5_1.jpg" class="zoom"/>
+      </div>
+      <div class="numerise col-md-6">
+	<p>Merci de saisir ci dessous une ligne par fonction ou mandat déclaré par le parlementaire. Pour créer une nouvelle ligne, cliquez sur « Valider et ajouter une ligne ». Si le parlementaire n'a rien saisi oun indiqué « Néan », merci de cliquer sur le bouton « Section à néant ».</p>
+<form class="form-horizontal" role="form">
+<table id="crowdtable" class="table">
+  <tr class="row"><th class="text-center">Identification des <br/>fonctions et mandats électifs</th><th class="text-center">Date de début et de fin de <br/>fonction de mandats électifs</th><th class="text-center">Rémunérations, indemnités ou <br/>gratifications perçues</th><th>&nbsp;</th></tr>
+  <tr class="row userline">
+    <td><textarea id="fonction[0]" placeholder="Fonction ou mandat n°1" class="form-control"></textarea></td>
+    <td><textarea id="dates[0]" placeholder="Dates de début et de fin n°1" class="form-control"></textarea></td>
+    <td><textarea id="remuneration[0]" placeholder="Rémunération n°1" class="form-control"></textarea></td>
+    <td class="middlecenter buttons"><span class="remove"><button class="form-control btn-danger"><span class="glyphicon glyphicon-remove"></span></button></span></td>
+  </tr>
+  <tr class="row userline">
+    <td><textarea id="fonction[1]" placeholder="Fonction ou mandat n°2" class="form-control"></textarea></td>
+    <td><textarea id="dates[1]" placeholder="Dates de début et de fin n°2" class="form-control"></textarea></td>
+    <td><textarea id="remuneration[1]" placeholder="Rémunération n°2" class="form-control"></textarea></td>
+    <td class="middlecenter buttons"><span class="add"><button class="form-control btn-primary"><span class="glyphicon glyphicon-plus"></span></button></span></td>
+  </tr>
+</table>
+<div class="row">
+<div class="col-md-6 form-inline">
+    <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu"><li><a href="#">Formulaire vide ou à «&nbsp;néant&nbsp;» </a></li><li><a href="#">Le formulaire n'est pas lisible</a></li><li><a href="#">Le formulaire ne correspond pas à la section «&nbsp;fonctions et mandats&nbsp;» </a></li> <li><a href="#">Les informations déclarées semblent incomplêtes</a></li></ul></div>
+  </div>
+    <div class="col-md-offset-3 col-md-3"><input id="validate" type="submit" class="form-control btn btn-success" value="Valider le formulaire vide"/></div>
+  <div class="col-md-6 form-inline text-right">
+  </div>
+</div>
+</form>
+</div>
+      </div>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.elevatezoom.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-datepicker.fr.js"></script>
+    <script>
+    $("img.zoom").elevateZoom({ zoomType: "lens", lensShape : "round", lensSize    : 300});
+    $(".date").datepicker({language: 'fr', 'format': 'mm/yyyy', viewMode: "months", minViewMode: "months"});
+    $(".addrow").click(function(){$("#crowdtable").append('<tr class="row">'+$("#crowdtable tr.userline").html()+'</tr>'); });
+    $("form").submit(function(){return false;});
+    function removerow() {$(this).parent().parent().parent().remove();updatetableevents();}
+    function addrow() {
+       $(this).parent().parent().parent().each(function() {
+          var tr = '<tr class="row userline">'+$(this).html()+"</tr>";
+	  var id = tr.match(/\[([0-9]*)\]/)[1]*1+1;
+	  tr = tr.replace(/\[[0-9]*\]/g, '['+id+']');
+	  tr = tr.replace(/n°[0-9]/g, 'n°'+(id+1));
+	  $(this).after(tr);});updatetableevents();
+    }
+    function updatesubmit() {var str = ''; $("textarea").each(function(){str += $(this).val();});if(str){$("#validate").val('Valider');}else{$("#validate").val('Valider le formulaire vide');}}
+    function updatetableevents() {
+	  updatesubmit();
+       $("#crowdtable tr:last td.buttons").html('<span class="add"><button class="form-control btn-primary"><span class="glyphicon glyphicon-plus"></span></button></span>');
+       $("#crowdtable tr:not(:last) td.buttons").html('<span class="remove"><button class="form-control btn-danger"><span class="glyphicon glyphicon-remove"></span></button></span>');
+       var trid = 0;
+       $("#crowdtable tr:not(:first)").each(function(){$(this).find("textarea").each(function(){$(this).attr('id', $(this).attr('id').replace(/\[[0-9]*\]/, '['+trid+']'));$(this).attr('placeholder', $(this).attr('placeholder').replace(/n°[0-9]*/, 'n°'+(trid+1)));}); trid++;});
+       $(".remove button").click(removerow);
+       $(".add button").click(addrow);
+       $("textarea").change(updatesubmit);
+    }
+    updatetableevents();
+    </script>
+  </body>
+</html>
