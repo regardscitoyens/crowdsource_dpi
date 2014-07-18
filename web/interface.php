@@ -34,7 +34,7 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
               <h3 class="text-center">Stastiques</h3>
               <div class="row">
               <div class="col-xs-6">
-              <img alt="200x200" class="img-circle" data-src="holder.js/200x200/auto/sky" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojZmZmO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=">
+              <div id="statpie" style="height: 200px;"></div>
               </div>
               <div class="col-xs-6">
               <h4>Top des contributeurs</h1>
@@ -101,6 +101,8 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
     <script src="js/jquery.elevatezoom.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/bootstrap-datepicker.fr.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.pie.min.js"></script>
     <script>
     $("img.zoom").elevateZoom({ zoomType: "lens", lensShape : "round", lensSize    : 300});
     $(".date").datepicker({language: 'fr', 'format': 'mm/yyyy', viewMode: "months", minViewMode: "months"});
@@ -126,6 +128,19 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
        $("textarea").change(updatesubmit);
     }
     updatetableevents();
+
+data = [ { label: "Fait",  data: 50, color: '#5CB85C'}, { label: "A faire",  data: 50, color: '#428BCA'} ];
+$.plot("#statpie", data , {series: { pie: { show: true, 
+	  label: {
+	    radius: 0.33, threshold: 0.1,
+	    show: true,
+	    formatter: function(data, serie){ 
+	  return serie.label+'<br/>'+Math.round(10*serie.percent)/10+'%';
+	  }}, 
+      }}, legend: { show: false }, grid: {
+    hoverable: true}
+
+  });
     </script>
   </body>
 </html>
