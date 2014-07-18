@@ -60,6 +60,15 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 <form class="form-horizontal" role="form" action="interface.php#crowdsource">
 <input type="hidden" name="id" value="<?php echo $id + 1; ?>"/>
   <?php include("forms/form".$id.".php"); ?>
+<div class="row">
+<div class="col-md-6 form-inline">
+    <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu"><li><a href="#">Formulaire vide ou à «&nbsp;néant&nbsp;» </a></li><li><a href="#">Le formulaire n'est pas lisible</a></li><li><a href="#">Le formulaire ne correspond pas à la section «&nbsp;fonctions et mandats&nbsp;» </a></li> <li><a href="#">Les informations déclarées semblent incomplêtes</a></li></ul></div>
+  </div>
+    <div class="col-md-offset-3 col-md-3"><input id="validate" type="submit" class="form-control btn btn-success" value="Valider le formulaire vide"/></div>
+  <div class="col-md-6 form-inline text-right">
+  </div>
+</div>
 </form>
       </div>
       </div>
