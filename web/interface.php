@@ -1,5 +1,6 @@
 <?php
 $id = $_GET['id'];
+if (!$id) $id = '0';
 if ($id == 11) {header("location: interface.php?id=0\n");exit;}
 $nom = "Chritian Eckert";
 $sections = array("informations générales", "renseignements personnels", "activités professionnelles présentes", "activités professionnelles passées", "activités de consultant", "participations à des organes dirigeants", "participations financières", "activités du conjoint", "fonctions bénévoles", "fonctions et mandats électifs", "observations");
@@ -32,8 +33,7 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 <div id="crowdsource" class="row">
 <?php if ($id) : ?>
 <div class="row">
-<div class="msg bg-success col-md-10 col-md-offset-1">
-<p>Les informations que vous avez saisies relative à la section « <?php echo $sections[$id - 1]; ?> » de <?php echo $nom; ?> ont bien été enregistrées.</p>
+<div class="msg bg-info col-md-10 col-md-offset-1">
 <p>N'hésitez pas à <a href="#signin">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. Si vous souhaitez partager la section que vous venez de saisir, elle est <a href="#">consultable ici</a>.</p>
 </div></div>
 <?php endif; ?>
@@ -50,6 +50,13 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
         <p class="text-center"><a href="#"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cette partie de la déclaration</a></p>
       </div>
       <div class="numerise col-md-6">
+<?php if ($id) : ?>
+<div class="row">
+<div class="msg bg-success col-md-10 col-md-offset-1">
+<p>Votre saisie a bien été enregistrée.</p>
+</div>
+</div>
+<?php endif; ?>
 <form class="form-horizontal" role="form" action="interface.php#crowdsource">
 <input type="hidden" name="id" value="<?php echo $id + 1; ?>"/>
   <?php include("forms/form".$id.".php"); ?>
