@@ -23,18 +23,23 @@ for($i = $first*1 ; $i <= $last ; $i++) {
     foreach $pc (@positions) {
 	$resfile = 'cropped_'.$fileprefix."-".$i."_".$y++.".jpg";
 	system("convert ".$fileprefix."-".$i.".jpg -crop 100%x".$pc."+0+".$size." ".$tmpdir.$resfile);
-	system("convert ".$tmpdir.$resfile." -fill black -colorize 50% ".$tmpdir."black_".$resfile);
 	open(IDENT, "identify ".$tmpdir.$resfile." |");
 	$ident = <IDENT>,
 	$ident =~ /x([\d+]+) /;
 	$size += $1;
+	system("mogrify -resize 1000x1000 ".$tmpdir.$resfile);
+	system("convert ".$tmpdir.$resfile." -fill black -colorize 50% ".$tmpdir."black_".$resfile);
+	system("convert ".$tmpdir."black_".$resfile." -gravity South -crop 1000x100+0+0 ".$tmpdir."black_bottom_".$resfile);
+	system("convert ".$tmpdir."black_".$resfile." -gravity North -crop 1000x100+0+0 ".$tmpdir."black_top_".$resfile);
     }
     for($y = 0 ; $y <= $#positions ; $y++) {
 	$cmd = "convert ";
-	for($z = 0 ; $z <= $#positions ; $z++) {
-	    $add = 'black_cropped_';
-	    $add = 'cropped_' if ($z == $y) ;
-	    $cmd .= $tmpdir.$add.$fileprefix.'-'.$i.'_'.$z.'.jpg ';
+	if ($y) {
+	    $cmd .= $tmpdir."black_bottom_cropped_".$fileprefix.'-'.$i.'_'.($y*1-1).'.jpg ';
+	}
+	$cmd .= $tmpdir."cropped_".$fileprefix.'-'.$i.'_'.$y.'.jpg ';
+	if ($y != $#positions) {
+	    $cmd .= $tmpdir."black_top_cropped_".$fileprefix.'-'.$i.'_'.($y*1+1).'.jpg ';	    
 	}
 	$cmd .= ' -append '.$fileprefix.'-mask-'.$i.'_'.$y.'.jpg';
 	system($cmd);
