@@ -33,10 +33,10 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
         <div class="col-md-4">
               <h3 class="text-center">Stastiques</h3>
               <div class="row">
-              <div class="col-md-6">
+              <div class="col-xs-6">
               <img alt="200x200" class="img-circle" data-src="holder.js/200x200/auto/sky" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojZmZmO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=">
               </div>
-              <div class="col-md-6">
+              <div class="col-xs-6">
               <h4>Top des contributeurs</h1>
               <ol>
               <li>Truc</li>
@@ -58,13 +58,14 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 <p>N'hésitez pas à <a href="#signin">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. Si vous souhaitez partager la section que vous venez de saisir, elle est <a href="#">consultable ici</a>.</p>
 </div></div>
 <?php endif; ?>
-      <div class="col-md-1"><img class="img-circle" src="http://www.nosdeputes.fr/depute/photo/christian-eckert/160"/></div>
-      <div class="col-md-11">
+<div class="media">
+  <img class="img-circle pull-left" src="http://www.nosdeputes.fr/depute/photo/christian-eckert/160"/>
+  <div class="media-body">
 	<h2>Déclaration de <?php echo $nom; ?> : <?php echo $sections[$id]; ?></h2>
 	<p><a href="#"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a></p>
 	<p>Dans la partie gauche de l'écran ci-dessous, la section «&nbsp;<?php echo $sections[$id]; ?>&nbsp;» de <?php echo $nom; ?> est reproduite. Nous vous invitons à la saisir en suivant les instructions proposées dans la partie droite de l'application. Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur « Signaler un problème », nous vous proposerons la section d'une autre déclaration à saisir.</p>
-      </div>
    </div>
+</div>
    <div class="row">
       <div class="col-md-6">
         <div class="declaration"><img width="100%" src="<?php echo $images[$id]; ?>" class="zoom"/></div>
@@ -82,11 +83,11 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 <input type="hidden" name="id" value="<?php echo $id + 1; ?>"/>
   <?php include("forms/form".$id.".php"); ?>
 <div class="row">
-<div class="col-md-6 form-inline">
+<div class="col-xs-6 form-inline">
     <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button>
       <ul class="dropdown-menu" role="menu"><li><a href="#">Formulaire vide ou à «&nbsp;néant&nbsp;» </a></li><li><a href="#">Le formulaire n'est pas lisible</a></li><li><a href="#">Le formulaire ne correspond pas à la section «&nbsp;fonctions et mandats&nbsp;» </a></li> <li><a href="#">Les informations déclarées semblent incomplêtes</a></li></ul></div>
   </div>
-    <div class="col-md-offset-3 col-md-3"><input id="validate" type="submit" class="form-control btn btn-success" value="Valider le formulaire vide"/></div>
+    <div class="col-xs-offset-3 col-xs-3"><input id="validate" type="submit" class="form-control btn btn-success" value="Valider le formulaire vide"/></div>
   <div class="col-md-6 form-inline text-right">
   </div>
 </div>
