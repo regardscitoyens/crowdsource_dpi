@@ -25,11 +25,32 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 </head>
 <body>
     <div class="container-fluid" role="main">
-      <div class="jumbotron">
+      <div class="jumbotron"><div class="row">
+        <div class="col-md-8">
         <h1>Numérisons les intérêts des parlementaires</h1>
 	<p>Pour que ces informations essentielles à la démocratie soient accessibles en Open Data</p>
-        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-      </div>
+        </div>
+        <div class="col-md-4">
+              <h3 class="text-center">Stastiques</h3>
+              <div class="row">
+              <div class="col-md-6">
+              <img alt="200x200" class="img-circle" data-src="holder.js/200x200/auto/sky" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojZmZmO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=">
+              </div>
+              <div class="col-md-6">
+              <h4>Top des contributeurs</h1>
+              <ol>
+              <li>Truc</li>
+              <li>Bidule</li>
+              <li>Machin</li>
+              <li>Chose</li>
+              <li>Muche</li>
+              </ul>  
+              <span><a href="#">Consulter le top 50</a></span>
+              </div>
+              </div>
+              <span class="text-muted text-center">11 000 éléments restent à numériser</span>
+        </div>
+      </div></div>
 <div id="crowdsource" class="row">
 <?php if ($id) : ?>
 <div class="row">
