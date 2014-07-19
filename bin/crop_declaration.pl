@@ -5,14 +5,22 @@ $fileprefix =~ s/.pdf//;
 
 $first = shift;
 $last = shift;
+$donotconvert = shift;
 
-system("convert -density 300 $pdf $fileprefix.jpg");
+system("convert -density 300 $pdf $fileprefix.jpg") unless($donotconvert);
 
-#Parlementaire
-#@crop = ('35%,15%,50%', '5%,35%,28%,28%,5%','5%,36%,49%,10%', '5%,32%,27%,28%,5%', '5%,32%,26%,32%,2%', '5%,28%,67%');
+@nb = `ls  $fileprefix-[0-9].jpg`;
+
+#Parlementaire version janvier
+if ($#nb == 5) {
+@crop = ('35%,15%,50%', '5%,32%,30%,29%,4%','5%,36%,49%,10%', '5%,32%,27%,28%,5%', '5%,32%,26%,32%,2%', '5%,28%,67%');
+}elsif($#nb == 6) {
+#Parlementaire version decembre
+@crop = ('20%,30%,50%', '5%,20%,38%,32%,5%','5%,40%,50%,5%', '5%,48%,42%,5%', '5%,23%,32%,35%,5%', '5%,59%,17%,19%', "15%,30%,55%");
+}
 
 #Ministres
-@crop = ('30%,21%,49%', '5%,31%,59%,5%','5%,49%,41%,5%', '5%,42%,43%,10%', '5%,45%,45%,5%', '5%,50%,40%,5%');
+#@crop = ('30%,21%,49%', '5%,31%,59%,5%','5%,49%,41%,5%', '5%,42%,43%,10%', '5%,45%,45%,5%', '5%,50%,40%,5%');
 $last = $last || $#crop;
 
 for($i = $first*1 ; $i <= $last ; $i++) {
