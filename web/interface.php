@@ -64,7 +64,7 @@ h1 {margin-top: 0px; margin-bottom: 20px;}
       <?php if ($id) : ?>
         <div class="row">
           <div class="msg bg-info col-md-10 col-md-offset-1">
-            <p>N'hésitez pas à <a href="#signin">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. Si vous souhaitez partager la section que vous venez de saisir, elle est <a href="#">consultable ici</a>.</p>
+            <p>N'hésitez pas à <a href="#signin" data-toggle="modal" data-target="#signin">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. Si vous souhaitez partager la section que vous venez de saisir, elle est <a href="#">consultable ici</a>.</p>
           </div>
         </div>
       <?php endif; ?>
@@ -104,6 +104,43 @@ h1 {margin-top: 0px; margin-bottom: 20px;}
        </div>
       </div>
       <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+      <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signinLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
+            <h4 class="modal-title" id="signinLabel">S'enregistrer</h4>
+          </div>
+          <form class="form-horizontal" role="form">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-5 control-label">Nom/Pseudo</label>
+              <div class="col-sm-7">
+                <input type="email" class="form-control" id="pseudo" placeholder="Mon pseudo">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-5 control-label">Utilisateur Twitter/Identica</label>
+              <div class="col-sm-7">
+                 <input type="text" class="form-control" id="twitter" placeholder="@utilisateur">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                  <label><input type="checkbox" checked> Publier mon nom comme contributeur du projet</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Abandonner</button>
+           <button type="button" class="btn btn-primary">Valider</button>
+          </form>
+         </div>
+        </div>
+      </div>
+    </div>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
