@@ -20,14 +20,42 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 <style>
 .declaration{background: gray; padding: 10px;}
 .middlecenter {display:table-cell; vertical-align:middle !important; float:none;}
-.msg {padding: 15px; text-align: center; margin-bottom: 15px; }
+.msg {padding: 15px; text-align: center;}
+.media {margin-top: 0px;}
+.media img {margin-top: 5px;}
 body: {padding-left: 10px; padding-right: 10px;}
 #stats h3 {margin-top: 0px;}
+#crowdsource {padding-top: 50px;}
 .jumbotron p {font-size: 14px;}
-h1 {margin-top: 0px; margin-bottom: 20px;}
+h1 {margin-bottom: 20px;}
 </style>
 </head>
 <body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Numérisons les déclarations d'intérêts</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Introduction</a></li>
+            <li><a href="#crowdsource">Participer</a></li>
+            <li><a href="#contributeurs">Les contributeurs</a></li>
+            <li><a href="http://www.hatvp.fr/consulter-les-declarations-rechercher.html">Consulter les déclarations</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#signin" data-toggle="modal" data-target="#signin"><span class="glyphicon glyphicon-user"></span> S'enregistrer</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
     <div class="container-fluid" role="main">
       <div class="jumbotron"><div class="row">
         <div class="col-md-12"><h1 class="text-center">Numérisons les intérêts des parlementaires</h1> </div>
@@ -39,7 +67,7 @@ h1 {margin-top: 0px; margin-bottom: 20px;}
         <p class="text-right" style="margin-right: 50px"><a href="#crowdsource" class="btn btn-primary btn-lg" role="button">Participer à la numérisation &raquo;</a></p>
         </div>
         <div id="stats" class="col-md-4 well well-lg">
-          <h3 class="text-center page-header">Stastiques</h3>
+          <h3 class="text-center page-header">Statistiques</h3>
           <div class="row">
             <div class="col-xs-6">
                <div id="statpie" style="height: 200px;"></div>
