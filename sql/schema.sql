@@ -38,3 +38,5 @@ ALTER TABLE `tasks`
 ALTER TABLE `document`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `document` ADD UNIQUE(`img`); 
+ALTER TABLE `document` ADD UNIQUE( `type`, `parlementaire`); 
