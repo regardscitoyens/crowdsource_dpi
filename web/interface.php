@@ -1,10 +1,11 @@
 <?php
 $id = $_GET['id'];
 if (!$id) $id = '0';
-if ($id == 11) {header("location: interface.php?id=0\n");exit;}
-$nom = "Chritian Eckert";
-$sections = array("informations générales", "renseignements personnels", "activités professionnelles présentes", "activités professionnelles passées", "activités de consultant", "participations à des organes dirigeants", "participations financières", "activités du conjoint", "fonctions bénévoles", "fonctions et mandats électifs", "observations");
-$images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-christian-di-gouvernement-mask-1_1.jpg","img/eckert-christian-di-gouvernement-mask-1_2.jpg","img/eckert-christian-di-gouvernement-mask-2_1.jpg","img/eckert-christian-di-gouvernement-mask-2_2.jpg","img/eckert-christian-di-gouvernement-mask-3_1.jpg","img/eckert-christian-di-gouvernement-mask-3_2.jpg","img/eckert-christian-di-gouvernement-mask-4_1.jpg","img/eckert-christian-di-gouvernement-mask-4_2.jpg","img/eckert-christian-di-gouvernement-mask-5_1.jpg","img/eckert-christian-di-gouvernement-mask-5_2.jpg");
+if ($id == 23) {header("location: interface.php?id=0\n");exit;}
+$noms = array("Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député");
+$sections = array("informations générales", "renseignements personnels", "activités professionnelles présentes", "activités professionnelles passées", "activités de consultant", "participations à des organes dirigeants", "participations financières", "activités du conjoint", "fonctions bénévoles", "fonctions et mandats électifs", "observations","renseignements personnels", "activités professionnelles présentes", "activités professionnelles passées", "activités de consultant", "participations à des organes dirigeants", "participations financières", "activités du conjoint", "fonctions bénévoles", "fonctions et mandats électifs", "collaborateurs", "activités conservées", "observations");
+$images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-christian-di-gouvernement-mask-1_1.jpg","img/eckert-christian-di-gouvernement-mask-1_2.jpg","img/eckert-christian-di-gouvernement-mask-2_1.jpg","img/eckert-christian-di-gouvernement-mask-2_2.jpg","img/eckert-christian-di-gouvernement-mask-3_1.jpg","img/eckert-christian-di-gouvernement-mask-3_2.jpg","img/eckert-christian-di-gouvernement-mask-4_1.jpg","img/eckert-christian-di-gouvernement-mask-4_2.jpg","img/eckert-christian-di-gouvernement-mask-5_1.jpg","img/eckert-christian-di-gouvernement-mask-5_2.jpg","img/DIA_janvier_2014-mask-1_1.jpg","img/DIA_janvier_2014-mask-1_2.jpg","img/DIA_janvier_2014-mask-1_3.jpg","img/DIA_janvier_2014-mask-2_1.jpg","img/DIA_janvier_2014-mask-2_2.jpg","img/DIA_janvier_2014-mask-3_1.jpg","img/DIA_janvier_2014-mask-3_2.jpg","img/DIA_janvier_2014-mask-3_3.jpg","img/DIA_janvier_2014-mask-4_1.jpg","img/DIA_janvier_2014-mask-4_2.jpg","img/DIA_janvier_2014-mask-4_3.jpg","img/DIA_janvier_2014-mask-5_1.jpg");
+$forms = array("form0.php","form1.php","form2.php","form3.php","form4.php","form5.php","form6.php","form7.php","form8.php","form9.php","form12.php","form1.php","form2.php","form3.php","form4.php","form5.php","form6.php","form7.php","form8.php","form9.php","form10.php","form11.php","form12.php");
 
 ?>
 <!DOCTYPE html>
@@ -99,9 +100,9 @@ h1 {margin-bottom: 20px;}
       <div class="media">
         <img class="img-circle pull-left" src="http://www.nosdeputes.fr/depute/photo/christian-eckert/160"/>
         <div class="media-body">
-	  <h2 class="page-header">Déclaration de <?php echo $nom; ?> : <?php echo $sections[$id]; ?></h2>
+	  <h2 class="page-header">Déclaration de <?php echo $noms[$id]; ?> : <?php echo $sections[$id]; ?></h2>
 	  <p><a href="#"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a></p>
-	  <p>Dans la partie gauche de l'écran ci-dessous, la section «&nbsp;<?php echo $sections[$id]; ?>&nbsp;» de <?php echo $nom; ?> est reproduite. Nous vous invitons à la saisir en suivant les instructions proposées dans la partie droite de l'application. Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur « Signaler un problème », nous vous proposerons la section d'une autre déclaration à saisir.</p>
+	  <p>Dans la partie gauche de l'écran ci-dessous, la section «&nbsp;<?php echo $sections[$id]; ?>&nbsp;» de <?php echo $noms[$id]; ?> est reproduite. Nous vous invitons à la saisir en suivant les instructions proposées dans la partie droite de l'application. Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur « Signaler un problème », nous vous proposerons la section d'une autre déclaration à saisir.</p>
         </div>
       </div>
       <div class="well">
@@ -120,7 +121,7 @@ h1 {margin-bottom: 20px;}
          <?php endif; ?>
          <form class="form-horizontal" role="form" action="interface.php#crowdsource">
            <input type="hidden" name="id" value="<?php echo $id + 1; ?>"/>
-           <?php include("forms/form".$id.".php"); ?>
+           <?php include("forms/".$forms[$id]); ?>
            <div class="row">
             <div class="col-xs-6 form-inline">
               <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#">Formulaire vide ou à «&nbsp;néant&nbsp;» </a></li><li><a href="#">Le formulaire n'est pas lisible</a></li><li><a href="#">Le formulaire ne correspond pas à la section «&nbsp;fonctions et mandats&nbsp;» </a></li> <li><a href="#">Les informations déclarées semblent incomplêtes</a></li></ul></div>
