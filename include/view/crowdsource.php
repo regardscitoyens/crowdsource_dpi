@@ -27,8 +27,8 @@
                 </div>
               <?php endif; ?>
               
-               <form class="form-horizontal" role="form" action="/#crowdsource">
-                 <input type="hidden" name="id" value="<?php echo $id +1; ?>"/>
+               <form class="form-horizontal" role="form" action="save.php" method="POST">
+                 <input type="hidden" name="token" value="<?php echo $token; ?>"/>
                  <?php include("../include/view/forms/".$form); ?>
                  <div class="row">
                   <div class="col-xs-6 form-inline">
@@ -47,31 +47,37 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
             <h4 class="modal-title" id="signinLabel">S'enregistrer</h4>
           </div>
-          <form class="form-horizontal" role="form">
+          <form class="form-horizontal" role="form" action="login.php" method="POST">
           <div class="modal-body">
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-5 control-label">Nom/Pseudo</label>
+              <label for="nickname" class="col-sm-5 control-label">Nom/Pseudo</label>
               <div class="col-sm-7">
-                <input type="email" class="form-control" id="pseudo" placeholder="Mon pseudo">
+                <input class="form-control" name="nickname" required='true' value="<?php echo $nickname; ?>" placeholder="Mon pseudo">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-5 control-label">Utilisateur Twitter/Identica</label>
+              <label for="twitter" class="col-sm-5 control-label">Utilisateur Twitter/Identica</label>
               <div class="col-sm-7">
-                 <input type="text" class="form-control" id="twitter" placeholder="@utilisateur">
+                 <input type="text" class="form-control" name="twitter" value="<?php echo $twitter; ?>" placeholder="@utilisateur">
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-offset-4 col-sm-8">
+              <label for="website" class="col-sm-5 control-label">Site web</label>
+              <div class="col-sm-7">
+                 <input type="text" class="form-control" name="website" value="<?php echo $website; ?>" placeholder="http://....">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12">
                 <div class="checkbox">
-                  <label><input type="checkbox" checked> Publier mon nom comme contributeur du projet</label>
+  	          <small>En fournissant ces informations, vous acceptez qu'elles soient publiées dans la liste des contributeurs</small>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
            <button type="button" class="btn btn-default" data-dismiss="modal">Abandonner</button>
-           <button type="button" class="btn btn-primary">Valider</button>
+           <input type="submit" class="btn btn-primary" value="Valider"/>
           </form>
          </div>
         </div>
