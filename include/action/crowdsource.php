@@ -20,3 +20,4 @@ $token = $_SESSION['token'];
 $sent_ok = $_SESSION['sent_ok'];
 $_SESSION['sent_ok'] = null;
 
+$menu_home = 1;

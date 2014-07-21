@@ -8,9 +8,13 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 $forms = array("form0.php","form1.php","form2.php","form3.php","form4.php","form5.php","form6.php","form7.php","form8.php","form9.php","form12.php","form1.php","form2.php","form3.php","form4.php","form5.php","form6.php","form7.php","form8.php","form9.php","form10.php","form11.php","form12.php");
 
 function get_rand_document() {
+  $id = rand(0, 22);
+  return get_document_from_name_and_formid('', $id);
+}
+
+function get_document_from_name_and_formid($name, $id) {
   global $noms, $sections, $images, $forms;
   $doc = array();
-  $id = rand(0, 22);
   $doc['nom'] = $noms[$id];
   $doc['section'] = $sections[$id];
   $doc['img'] = $images[$id];
@@ -19,3 +23,4 @@ function get_rand_document() {
   $doc['id'] = $id;
   return $doc;
 }
+

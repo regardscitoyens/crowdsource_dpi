@@ -37,10 +37,10 @@ h1 {margin-bottom: 20px;}
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Introduction</a></li>
-            <li><a href="#crowdsource">Participer</a></li>
-            <li><a href="#contributeurs">Les contributeurs</a></li>
-            <li><a href="http://www.hatvp.fr/consulter-les-declarations-rechercher.html">Consulter les déclarations</a></li>
+            <li<?php if($menu_home) echo ' class="active" '; ?>><a href="./">Introduction</a></li>
+            <li<?php if($menu_home) echo ' class="active" '; ?>><a href="./#crowdsource">Participer</a></li>
+            <li><a href="./contributeurs.php">Les contributeurs</a></li>
+            <li<?php if($menu_declaration) echo ' class="active"'; ?>><a href="http://www.hatvp.fr/consulter-les-declarations-rechercher.html">Consulter les déclarations</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#signin" data-toggle="modal" data-target="#signin"><span class="glyphicon glyphicon-user"></span> S'enregistrer</a></li>

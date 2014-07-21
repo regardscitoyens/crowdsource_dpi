@@ -4,18 +4,7 @@
        <?php endif; ?>
        <div class="row">
          <div class="col-md-6">
-            <div class="well">
-            <div class="media">
-              <img class="img-circle pull-left" src="<?php echo $avatar; ?>"/>
-              <a href="#" class="small pull-right"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a>
-              <div class="media-body">
-            <h3 class="page-header text-muted">Déclaration de <?php echo $nom; ?></h3>
-        </div>
-       </div>
-                <h3 class="text-center"><?php echo ucfirst($section); ?> <small>Partie <?php echo $id; ?>/12</small></h3>
-                <div class="declaration"><img width="100%" src="<?php echo $img; ?>" class="zoom"/></div>
-                <p class="text-center"><a href="#"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cette partie de la déclaration</a></p>
-          </div>
+            <?php include(__DIR__.'/declarationimg.php'); ?>
          </div>
          <div class="numerise col-md-6">
               <h3 class="page-header text-center" style="padding-top: 20px">
