@@ -37,7 +37,6 @@ h1 {margin-bottom: 20px;}
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li<?php if($menu_home) echo ' class="active" '; ?>><a href="./">Introduction</a></li>
             <li<?php if($menu_home) echo ' class="active" '; ?>><a href="./#crowdsource">Participer</a></li>
             <li><a href="./contributeurs.php">Les contributeurs</a></li>
             <li<?php if($menu_declaration) echo ' class="active"'; ?>><a href="http://www.hatvp.fr/consulter-les-declarations-rechercher.html">Consulter les déclarations</a></li>
