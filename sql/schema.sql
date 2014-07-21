@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `document` (
   `img` varchar(100) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `parlementaire` varchar(100) NOT NULL,
+  `parlementaire_avatarurl` varchar(100),
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
   `done` tinyint(1) NOT NULL DEFAULT '0',
   `ips` text NOT NULL,
@@ -37,3 +38,5 @@ ALTER TABLE `tasks`
 ALTER TABLE `document`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `document` ADD UNIQUE(`img`); 
+ALTER TABLE `document` ADD UNIQUE( `type`, `parlementaire`); 
