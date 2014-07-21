@@ -100,12 +100,12 @@ h1 {margin-bottom: 20px;}
             <div class="well">
             <div class="media">
               <img class="img-circle pull-left" src="http://www.nosdeputes.fr/depute/photo/christian-eckert/80"/>
+              <a href="#" class="small pull-right"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a>
               <div class="media-body">
             <h3 class="page-header text-muted">Déclaration de <?php echo $noms[$id]; ?></h3>
         </div>
       </div>
-                <a style="font-size: 12px"href="#" class="pull-right"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a>
-                <h3 class="text-center"><?php echo ucfirst($sections[$id]); ?> <small>Partie 8/15</small></h3>
+                <h3 class="text-center"><?php echo ucfirst($sections[$id]); ?> <small>Partie <?php echo $id; ?>/12</small></h3>
                 <div class="declaration"><img width="100%" src="<?php echo $images[$id]; ?>" class="zoom"/></div>
                 <p class="text-center"><a href="#"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cette partie de la déclaration</a></p>
           </div>
@@ -192,16 +192,17 @@ h1 {margin-bottom: 20px;}
 	  tr = tr.replace(/n°[0-9]/g, 'n°'+(id+1));
 	  $(this).after(tr);});updatetableevents();
     }
-    function updatesubmit() {var str = ''; $("textarea").each(function(){str += $(this).val();});if(str){$("#validate span.libelle").html('Valider');}else{$("#validate span.libelle").html('Valider le formulaire vide');}}
+function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){str += $(this).val();});$(".numerise input[type='text']").each(function(){str += $(this).val();});if(str){$("#validate span.libelle").html('Valider');}else{$("#validate span.libelle").html('Valider le formulaire vide');}}
     function updatetableevents() {
   	  updatesubmit();
-       $("#crowdtable tr:last td.buttons").html('<span class="add"><button class="form-control btn-primary"><span class="glyphicon glyphicon-plus"></span></button></span>');
+       $("#crowdtable tr:last td.buttons").html('<span class="add"><button class="form-control btn-primary" ><span class="glyphicon glyphicon-plus"></span></button></span>');
        $("#crowdtable tr:not(:last) td.buttons").html('<span class="remove"><button class="form-control btn-danger"><span class="glyphicon glyphicon-remove"></span></button></span>');
        var trid = 0;
        $("#crowdtable tr:not(:first)").each(function(){$(this).find("textarea").each(function(){$(this).attr('id', $(this).attr('id').replace(/\[[0-9]*\,/, '['+trid+','));$(this).attr('placeholder', $(this).attr('placeholder').replace(/n°[0-9]*/, 'n°'+(trid+1)));}); trid++;});
        $(".remove button").click(removerow);
        $(".add button").click(addrow);
-       $("textarea").change(updatesubmit);
+       $(".numerise textarea").change(updatesubmit);
+       $(".numerise input[type='text']").change(updatesubmit);
     }
     updatetableevents();
 data = [ { label: "Fait",  data: 75, color: '#5CB85C'}, { label: "A faire",  data: 25, color: '#FFF'} ];
