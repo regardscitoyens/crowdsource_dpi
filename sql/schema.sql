@@ -6,7 +6,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
-CREATE TABLE IF NOT EXISTS `document` (
+CREATE TABLE IF NOT EXISTS `documents` (
 `id` int(10) unsigned NOT NULL,
   `img` varchar(100) NOT NULL,
   `type` int(10) unsigned NOT NULL,
@@ -26,17 +26,28 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `document_id` int(10) unsigned NOT NULL,
   `data` text NOT NULL,
   `created_at` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+CREATE TABLE IF NOT EXISTS `users` (
+`id` int(11) NOT NULL,
+  `auth` varchar(50) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `twitter` varchar(100) NOT NULL,
+  `wbesite` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-ALTER TABLE `document`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `parlementaire` (`parlementaire`,`ips`);
+ALTER TABLE `users`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth` (`auth`);
+ALTER TABLE `users`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 ALTER TABLE `tasks`
  ADD PRIMARY KEY (`id`), ADD KEY `nickname` (`nickname`), ADD FULLTEXT KEY `data` (`data`);
 
-ALTER TABLE `document`
+ALTER TABLE `documents`
+ ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `parlementaire` (`parlementaire`,`ips`);
+ALTER TABLE `documents`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `document` ADD UNIQUE(`img`); 
-ALTER TABLE `document` ADD UNIQUE( `type`, `parlementaire`); 
+ALTER TABLE `documents` ADD UNIQUE(`img`);
+ALTER TABLE `documents` ADD UNIQUE( `type`, `parlementaire`);
