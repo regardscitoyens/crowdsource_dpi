@@ -8,5 +8,5 @@ if ($_POST['token'] == $_SESSION['token']) {
 }
 $_SESSION['token'];
 
-header("Location: ./?ok=".$_SESSION['sent_ok']."#crowdsource\n");
+header("Location: ./#crowdsource\n");
 exit;
