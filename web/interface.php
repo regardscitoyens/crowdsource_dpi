@@ -55,7 +55,7 @@ h1 {margin-bottom: 20px;}
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#signin" data-toggle="modal" data-target="#signin"><span class="glyphicon glyphicon-user"></span> S'enregistrer</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
@@ -102,9 +102,6 @@ h1 {margin-bottom: 20px;}
               <img class="img-circle pull-left" src="http://www.nosdeputes.fr/depute/photo/christian-eckert/80"/>
               <div class="media-body">
             <h3 class="page-header text-muted">Déclaration de <?php echo $noms[$id]; ?></h3>
-    <!--<a style="font-size: 12px"href="#" class="pull-right"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a>-->
-
-    <!--<p>Dans la partie gauche de l'écran ci-dessous, la section «&nbsp;<?php echo $sections[$id]; ?>&nbsp;» de <?php echo $noms[$id]; ?> est reproduite. Nous vous invitons à la saisir en suivant les instructions proposées dans la partie droite de l'application. Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur « Signaler un problème », nous vous proposerons la section d'une autre déclaration à saisir.</p>-->
         </div>
       </div>
                 <a style="font-size: 12px"href="#" class="pull-right"><span class="glyphicon glyphicon-share"></span> Partager cette partie de la déclaration</a>
