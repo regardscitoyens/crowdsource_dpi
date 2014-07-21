@@ -3,6 +3,6 @@
 <table id="crowdtable" class="table">
   <tr class="row"><th class="text-center">Observations</th></tr>
   <tr class="row userline">
-    <td><textarea rows="12" id="champ[0,0]" placeholder="Observations déclarées" class="form-control"></textarea></td>
+    <td><textarea rows="12" name="champ[0,0]" placeholder="Observations déclarées" class="form-control"></textarea></td>
   </tr>
 </table>
