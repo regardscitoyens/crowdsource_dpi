@@ -11,7 +11,7 @@ $form = $doc['form'];
 $section = $doc['section'];
 $avatar = $doc['avatar'];
 $partie = $doc['partie'];
-$_SESSION['id'] = $doc['id'];
+$_SESSION['document_id'] = $doc['id'];
 
 if (isset($_SESSION['nickname'])) {
   $nickname = $_SESSION['nickname'];
