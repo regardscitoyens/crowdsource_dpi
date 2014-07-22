@@ -8,6 +8,6 @@
              </div>
              <div class="declaration"><img width="100%" src="<?php echo $img; ?>" class="zoom"/></div>
                <?php if (!$donotshare) : ?>
-             <p id="permalink-img" class="text-center"><a href="./declaration.php?id=<?php echo $id; ?>&name=<?php echo $nom; ?>"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cet extrait de déclaration</a></p>
+             <p id="permalink-img" class="text-center"><a target="_blank" href="./declaration.php?id=<?php echo $id; ?>&name=<?php echo $nom; ?>"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cet extrait de déclaration</a></p>
                <?php endif; ?>
           </div>
