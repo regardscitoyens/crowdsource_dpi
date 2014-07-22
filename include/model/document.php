@@ -8,11 +8,34 @@ $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-
 $forms = array("form0.php","form1.php","form2.php","form3.php","form4.php","form5.php","form6.php","form7.php","form8.php","form9.php","form12.php","form1.php","form2.php","form3.php","form4.php","form5.php","form6.php","form7.php","form8.php","form9.php","form10.php","form11.php","form12.php");
 
 function get_rand_document() {
-  $id = rand(0, 22);
-  return get_document_from_name_and_formid('', $id);
+  global $bdd;
+  if (!$bdd) {
+    $id = rand(0, 22);
+    return get_document_from_id($id);
+  }
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id FROM document WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
+  $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
+  return get_document_from_req($req);
+}
+
+function get_document_from_req($req) {
+  global $sections;
+  $data = $req->fetch();
+  $doc['nom'] = $data['parlementaire'];
+  $doc['section'] = $sections[$data['type']];
+  $doc['img'] = $data['img'];
+  $doc['form'] = 'form'.$data['type'].'.php';
+  $doc['avatar'] = $data['parlementaire_avatarurl'];
+  $doc['partie'] = $data['type'] + 1;
+  $doc['id'] = $data['id'];
+  return $doc;
 }
 
 function get_document_from_name_and_formid($name, $id) {
+  return get_document_from_id($id);
+}
+
+function get_document_from_id($id) {
   global $noms, $sections, $images, $forms;
   $doc = array();
   $doc['nom'] = $noms[$id];
@@ -21,6 +44,7 @@ function get_document_from_name_and_formid($name, $id) {
   $doc['form'] = $forms[$id];
   $doc['avatar'] = ($doc['nom'] == "Christian Eckert") ? "http://www.nosdeputes.fr/depute/photo/christian-eckert/80" : "http://www.nosdeputes.fr/depute/photo/catherine-pen/80";
   $doc['id'] = $id;
+  $doc['partie'] = $id + 1;
   return $doc;
 }
 
