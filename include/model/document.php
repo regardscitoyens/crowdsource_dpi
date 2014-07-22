@@ -19,7 +19,7 @@ function get_document_from_name_and_formid($name, $id) {
   $doc['section'] = $sections[$id];
   $doc['img'] = $images[$id];
   $doc['form'] = $forms[$id];
-  $doc['avatar'] = ($nom == "Christian Eckert") ? "http://www.nosdeputes.fr/depute/photo/christian-eckert/80" : "http://www.nosdeputes.fr/depute/photo/catherine-pen/80";
+  $doc['avatar'] = ($doc['nom'] == "Christian Eckert") ? "http://www.nosdeputes.fr/depute/photo/christian-eckert/80" : "http://www.nosdeputes.fr/depute/photo/catherine-pen/80";
   $doc['id'] = $id;
   return $doc;
 }
