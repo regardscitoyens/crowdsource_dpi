@@ -71,13 +71,13 @@ function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){s
        $("#crowdtable tr:not(:first)").each(function(){$(this).find("textarea").each(function(){$(this).attr('name', $(this).attr('name').replace(/\[[0-9]*\,/, '['+trid+','));$(this).attr('placeholder', $(this).attr('placeholder').replace(/n°[0-9]*/, 'n°'+(trid+1)));}); trid++;});
        $(".remove button").click(removerow);
        $(".add button").click(addrow);
-       $(".numerise textarea").change(updatesubmit);
-       $(".numerise input[type='text']").change(updatesubmit);
+       $(".numerise textarea").keyup(updatesubmit);
+       $(".numerise input[type='text']").keyup(updatesubmit);
     }
     updatetableevents();
 data = [ { label: "Fait",  data: 75, color: '#5CB85C'}, { label: "A faire",  data: 25, color: '#FFF'} ];
 $.plot("#statpie", data , {series: { pie: { show: true,  label: { radius: 0.33, threshold: 0.1, show: true, formatter: function(data, serie){ return serie.label+'<br/>'+Math.round(10*serie.percent)/10+'%';}}}},legend:{show: false}, grid:{hoverable: true}});
     </script>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+      <p></p>
   </body>
 </html>
