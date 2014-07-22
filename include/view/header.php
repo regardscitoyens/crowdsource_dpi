@@ -30,7 +30,7 @@ h1 {margin-bottom: 20px;}
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="logo"><a href="http://RegardsCitoyens.org" title="Une initiative de Regards Citoyens"><img alt="Regards Citoyens" src="img/logo_regardscitoyens.png" height="50" /></a></div>
+      <div class="logo"><a target="_blank" href="http://RegardsCitoyens.org" title="Une initiative de Regards Citoyens"><img alt="Regards Citoyens" src="img/logo_regardscitoyens.png" height="50" /></a></div>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
