@@ -20,12 +20,12 @@ body: {padding-left: 10px; padding-right: 10px;}
 #crowdsource {padding-top: 50px;}
 .numerise .well {background-color: #fBfBdb}
 .numerise .text-muted {font-size: 85%}
-.jumbotron p {font-size: 14px;}
+.jumbotron p {font-size: 14px; margin: 16px;}
 h1 {margin-bottom: 20px;}
 #crowdtable { margin-top: 22px;}
 .consigne { font-size: 15px }
 .page-header {margin: 8px!important}
-#permalink-img{padding-top:12px;}
+#permalink-img, #start-num{padding-top:12px;}
 </style>
 </head>
 <body>
