@@ -9,6 +9,7 @@
 <link href="css/datepicker.css" rel="stylesheet">
 <link href="data:text/css;charset=utf-8," data-href="css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
 <style>
+.logo{float:right;height:50px;margin-right:6px;margin-top:2px;}
 .declaration{background: gray; padding: 10px;}
 .middlecenter {display:table-cell; vertical-align:middle !important; float:none;}
 .msg {padding: 15px; text-align: center;}
@@ -25,6 +26,7 @@ h1 {margin-bottom: 20px;}
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="logo"><a href="http://RegardsCitoyens.org" title="Une initiative de Regards Citoyens"><img alt="Regards Citoyens" src="img/logo_regardscitoyens.png" height="50" /></a></div>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
