@@ -3,8 +3,8 @@ include('../db.php');
 
 session_start();
 
-if ($_POST['token'] != $_SESSION['token']) {
-  $_SESSION['sent_ok'] = false;
+if ($_POST['token'] != $_SESSION['token'] || !$bdd) {
+  $_SESSION['sent_ok'] = true;
   $_SESSION['token'] = null;
   header("Location: ./#crowdsource\n");
   exit;
@@ -29,6 +29,7 @@ for($x = 0 ; $x < 100 ; $x++) {
 }
 
 $json = json_encode($data);
+
 
 header("Location: ./#crowdsource\n");
 exit;
