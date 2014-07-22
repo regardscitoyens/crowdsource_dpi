@@ -19,6 +19,7 @@ body: {padding-left: 10px; padding-right: 10px;}
 #stats h3 {margin-top: 0px;}
 #crowdsource {padding-top: 50px;}
 .numerise .well {background-color: #fBfBdb}
+.numerise .text-muted {font-size: 85%}
 .jumbotron p {font-size: 14px;}
 h1 {margin-bottom: 20px;}
 #crowdtable { margin-top: 22px;}

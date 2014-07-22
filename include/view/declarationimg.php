@@ -3,8 +3,8 @@
               <img class="img-circle pull-left" src="<?php echo $avatar; ?>"/>
               <div class="media-body">
                <h3 class="page-header text-muted">Déclaration de <?php echo $nom; ?></h3>
+              <h4><small>Partie <?php echo $id; ?> / 12</small></h4><h4><?php echo ucfirst($section); ?></h4>
               </div>
-              <h4><?php echo ucfirst($section); ?> &nbsp; &nbsp; <small>Partie <?php echo $id; ?>/12</small></h4>
              </div>
              <div class="declaration"><img width="100%" src="<?php echo $img; ?>" class="zoom"/></div>
                <?php if (!$donotshare) : ?>
