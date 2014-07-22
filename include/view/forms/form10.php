@@ -1,6 +1,5 @@
-<p class="consigne">Merci de saisir ci dessous une ligne par collaborateur déclaré par le parlementaire.</p>
-
-<p style="text-muted">Pour créer une nouvelle ligne, cliquez sur le bouton « <span class="glyphicon glyphicon-plus"></span> ». Pour supprimer une ligne, cliquez sur le bouton « <span class="glyphicon glyphicon-remove"></span> » de la ligne correspondante. Si le parlementaire n'a rien saisi ou indiqué « Néant », cliquez sur le bouton « Valider le formulaire vide ».</p>
+<p class="consigne">Merci de saisir ci-dessous une ligne par collaborateur déclaré par le parlementaire.</p>
+<p style="text-muted">Pour créer une nouvelle ligne, cliquez sur le bouton «&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;».<br/>Pour supprimer une ligne, cliquez sur le bouton «&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;» de la ligne correspondante.<br/>Si le parlementaire n'a rien saisi ou a indiqué «&nbsp;Néant&nbsp;», cliquez sur le bouton «&nbsp;Valider le formulaire vide&nbsp;».</p>
 <table id="crowdtable" class="table">
   <tr class="row"><th class="text-center">Noms des collaborateurs parlementaires</th><th class="text-center">Identification de l'employeur ou de la struture d'emploi</th><th class="text-center">Description de l'activité professionnelle</th><th>&nbsp;</th></tr>
   <tr class="row userline">
