@@ -30,7 +30,10 @@
                </ol>
                <span><a href="contributeurs.php">Consulter le top 50</a></span>
               </div>
-	      <div class="col-xs-12 text-center"><span class="text-muted text-center">Un total de <?php echo preg_replace('/([0-9][0-9][0-9])$/', '&nbsp;\1', get_nb_documents()); ?> éléments à numériser</span></div>
+	        <div class="col-xs-12 text-center">
+              <span class="text-muted text-center">Un total de <?php echo preg_replace('/([0-9][0-9][0-9])$/', '&nbsp;\1', get_nb_documents()); ?> éléments à numériser<br/>
+              <?php echo get_nb_users(); ?> citoyens ont déjà contribué au total <?php echo preg_replace('/([0-9][0-9][0-9])$/', '&nbsp;\1', get_nb_contribs()); ?> fois</span>
+            </div>
           </div>
          </div>
         </div>

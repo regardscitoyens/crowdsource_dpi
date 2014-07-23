@@ -75,19 +75,22 @@ function get_document_from_staticid($id) {
   return $doc;
 }
 
-function get_pc_done() {
+function get_nb_contribs() {
   global $bdd;
   if (!$bdd) {
     return 0;
   }
-
-  $total = get_nb_documents();
-
   $req = $bdd->prepare("SELECT count(*) as ok FROM tasks");
   $req->execute();
   $data = $req->fetch();
-  $done = $data['ok'] / 4;
-  
+  return $data['ok'];
+}
+
+function get_pc_done() {
+  $total = get_nb_documents();
+  $contribs = get_nb_contribs();
+  $done = $contribs / 4;
+
   return $done * 100 / $total;
 }
 

@@ -85,3 +85,14 @@ function users_top($limit = 5) {
   }
   return $top;
 }
+
+function get_nb_users() {
+  global $bdd;
+  if (!$bdd) {
+    return 0;
+  }
+  $req = $bdd->prepare("SELECT count(distinct(userid)) as total FROM tasks");
+  $req->execute();
+  $data = $req->fetch();
+  return $data['total'];
+}
