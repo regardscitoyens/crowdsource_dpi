@@ -18,6 +18,8 @@
 body: {padding-left: 10px; padding-right: 10px;}
 #stats h3 {margin-top: 0px;}
 #crowdsource {padding-top: 50px;}
+#a-propos {padding-top: 50px; height: 600px}
+#a-propos p {margin: 28px;}
 .numerise .well {background-color: #fBfBdb}
 .numerise .text-muted {font-size: 85%}
 .jumbotron p {font-size: 14px; margin: 16px;}
