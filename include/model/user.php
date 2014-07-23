@@ -79,7 +79,7 @@ function users_top($limit = 5) {
   $top = array();
   while($data = $req->fetch()){
     if (!$data['nickname']) {
-      $data['nickname'] = 'Utilisateur anonyme n°'.$data['userid'];
+      $data['nickname'] = 'Citoyen anonyme n°'.$data['userid'];
     }
     array_push($top, array('nickname' => $data['nickname'], 'twitter' => $data['twitter'], 'website' => $data['website'], 'nb' => $data['nb']));
   }

@@ -18,12 +18,13 @@
                <h4>Top des contributeurs</h1>
                <ol>
 		<?php foreach (users_top() as $user ) {
-                    echo '<li>';
+                    echo '<li title="'.$user['nickname'].' - '.$user['nb'].' contributions">';
                     $link = 0;
                     if ($user['twitter']) { $link = 1 ;echo '<a target="_blank" href="http://twitter.com/'.$user['twitter'].'">';}
                     else if ($user['website']) { $link = 1 ;echo '<a target="_blank" href="'.$user['website'].'">';}
-                    echo $user['nickname'];
+                    echo str_replace('anonyme ', '', $user['nickname']);
                     if ($link) echo '</a>';
+                    echo '<small class="text-muted"> ('.$user['nb'].')</small>';
                     echo'</li>';
                 } ?>
                </ol>
