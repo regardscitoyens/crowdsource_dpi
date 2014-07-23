@@ -4,7 +4,7 @@
         <div class="col-md-6">
           <p>Ce site est une création de <a href="http://regardscitoyens.org" target="_blank">Regards Citoyens</a>. Il vise à assurer de manière collaborative et transparente l'accès en Open Data pour l'ensemble des citoyens aux déclarations d'intérêts des élus publiées par la Haute Autorité pour la Transparence de la Vie Publique comme le prévoit le IV à l'<a href="http://legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006070239&idArticle=LEGIARTI000028059568&dateTexte=">article LO135-2 du Code électoral</a> tel que modifié par la <a href="http://www.lafabriquedelaloi.fr/articles.html?loi=pjl12-688">loi organique n° 2013-906 du 11 octobre 2013 relative à la transparence de la vie publique</a>.</p>
           <p>Le logiciel permettant de réaliser et publier cette interface est un logiciel libre diffusé sous <a href="http://www.gnu.org/licenses/agpl-3.0.html">licence Affero GPL v3</a> et dont le code source est disponible en ligne sur <a href="https://github.com/regardscitoyens/crowdsource_dpi/" target="_blank">GitHub</a>.</p>
-          <p>Toutes les données collaborativement reconstruites grâce à cette interface seront publiées en Open Data sous <a href="http://wiki.data.gouv.fr/wiki/Licence_Ouverte_/_Open_Licence">Licence Ouverte</a> sur <a href="http://nosdonnees.fr">NosDonnées.fr</a> et <a href="http://data.gouv.fr">data.gouv.fr</a>. L</p>
+          <p>Toutes les données collaborativement reconstruites grâce à cette interface seront publiées en Open Data sous <a href="http://wiki.data.gouv.fr/wiki/Licence_Ouverte_/_Open_Licence">Licence Ouverte</a> sur <a href="http://nosdonnees.fr">NosDonnées.fr</a> et <a href="http://data.gouv.fr">data.gouv.fr</a>.</p>
           <p>Les <a href="http://regardscitoyens.org/mentions-legales/">mentions légales</a> usuelles des sites de Regards Citoyens s'appliquent.</p>
         </div>
         <div class="col-md-3"></div>
@@ -86,7 +86,7 @@ function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){s
        $(".numerise input[type='text']").keyup(updatesubmit);
     }
     updatetableevents();
-<?php 
+<?php
 /****************
 /* STATISTIQUES
 /***************/
