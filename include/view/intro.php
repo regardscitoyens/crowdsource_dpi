@@ -20,8 +20,8 @@
 		<?php foreach (users_top() as $user ) {
                     echo '<li>';
                     $link = 0;
-                    if ($user['twitter']) { $link = 1 ;echo '<a href="http://twitter.com/'.$user['twitter'].'">';}
-                    else if ($user['website']) { $link = 1 ;echo '<a href="'.$user['website'].'">';}
+                    if ($user['twitter']) { $link = 1 ;echo '<a target="_blank" href="http://twitter.com/'.$user['twitter'].'">';}
+                    else if ($user['website']) { $link = 1 ;echo '<a target="_blank" href="'.$user['website'].'">';}
                     echo $user['nickname'];
                     if ($link) echo '</a>';
                     echo'</li>'; 
