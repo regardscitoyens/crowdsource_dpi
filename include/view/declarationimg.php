@@ -2,7 +2,7 @@
             <div class="media text-center">
               <a title="<?php echo $nom; ?>" href="<?php echo preg_replace('#(depute|senateur)/photo/(.*)/\d+#', '$2', $avatar);?>" target="_blank"><img class="img-circle pull-left" src="<?php echo $avatar; ?>"/></a>
               <div class="media-body">
-               <h3 class="page-header text-muted">Déclaration de <?php echo $nom; ?></h3>
+               <h3 class="page-header text-muted">Déclaration de <?php echo $nom; ?> <small><a class="text-muted" href="<?php echo $source; ?>"><span class="glyphicon glyphicon-link"></span></a></small></h3>
               <h4><small>Partie <?php echo $partie; ?> / 13</small></h4><h4><?php echo ucfirst($section); ?></h4>
               </div>
              </div>

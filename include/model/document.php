@@ -14,7 +14,7 @@ function get_rand_document() {
     $id = rand(0, 22);
     return get_document_from_id($id);
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
   $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
   return get_document_from_req($req);
 }
@@ -24,7 +24,7 @@ function get_document_from_id($id) {
   if (!$bdd) {
     return array();
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE id = :id");
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE id = :id");
   $req->execute(array('id' => $id));
   return get_document_from_req($req);
 }
@@ -47,6 +47,7 @@ function get_document_from_req($req) {
   $doc['id'] = $data['id'];
   $doc['ips'] = $data['ips'];
   $doc['tries'] = $data['tries'];
+  $doc['source'] = $data['source'];
   return $doc;
 }
 
@@ -55,7 +56,7 @@ function get_document_from_name_and_formid($name, $id) {
   if (!$bdd) {
     return get_document_from_staticid($id);
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE parlementaire = :parlementaire AND type = :type");
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE parlementaire = :parlementaire AND type = :type");
   $req->execute(array('parlementaire' => $name, 'type' => $id));
   return get_document_from_req($req);
 }
@@ -70,6 +71,7 @@ function get_document_from_staticid($id) {
   $doc['avatar'] = ($doc['nom'] == "Christian Eckert") ? "http://www.nosdeputes.fr/depute/photo/christian-eckert/80" : "http://www.nosdeputes.fr/depute/photo/catherine-pen/80";
   $doc['id'] = $id;
   $doc['partie'] = $id + 1;
+  $doc['source'] = "http://www.hatvp.fr/consulter-les-declarations-rechercher.html";
   return $doc;
 }
 

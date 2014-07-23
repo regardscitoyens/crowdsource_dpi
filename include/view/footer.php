@@ -21,7 +21,7 @@
             <div class="form-group">
               <label for="nickname" class="col-sm-5 control-label">Nom/Pseudo</label>
               <div class="col-sm-7">
-                <input class="form-control" name="nickname" required='true' value="<?php if (isset($nickname)) echo $nickname; ?>" placeholder="Mon pseudo">
+                <input class="form-control" name="nickname" required='true' value="<?php if (isset($nickname))echo $nickname; ?>" placeholder="Mon pseudo">
               </div>
             </div>
             <div class="form-group">
@@ -85,6 +85,7 @@ function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){s
        $(".numerise textarea").keyup(updatesubmit);
        $(".numerise input[type='text']").keyup(updatesubmit);
     }
+    $(".numerise form").submit(function() {if ($("#validate span.libelle").html() == 'Valider'){return true;}else{return confirm("La déclaration présentée est-elle bien vide ou indiquée « néant » ?");}});
     updatetableevents();
 <?php
 /****************
