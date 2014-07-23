@@ -15,6 +15,7 @@ if (!$doc) {
   $section = $doc['section'];
   $avatar = $doc['avatar'];
   $partie = $doc['partie'];
+  $source = $doc['source'];
   $_SESSION['document_id'] = $doc['id'];
 }
 
