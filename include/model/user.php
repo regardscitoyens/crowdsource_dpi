@@ -13,7 +13,7 @@ function retrieve_user_or_create_it() {
   if (!$bdd) {
     return 0;
   }
-  $req = $bdd->prepare("INSERT INTO user (auth) VALUES (:auth)");
+  $req = $bdd->prepare("INSERT INTO users (auth) VALUES (:auth)");
   $auth = md5(rand());
   $req->execute(array('auth' => $auth));
   set_usersession_from_auth($auth);
@@ -25,7 +25,7 @@ function set_usersession_from_auth($auth) {
   if (!$bdd) {
     return 0;
   }
-  $req = $bdd->prepare("SELECT id, nickname, twitter, website, auth FROM user WHERE auth = :auth");
+  $req = $bdd->prepare("SELECT id, nickname, twitter, website, auth FROM users WHERE auth = :auth");
   $req->execute(array('auth' => $auth));
   return set_usersession_from_req($req);
 }
@@ -35,7 +35,7 @@ function set_usersession_from_id($id) {
   if (!$bdd) {
     return 0;
   }
-  $req = $bdd->prepare("SELECT id, nickname, twitter, website, auth FROM user WHERE id = :id");
+  $req = $bdd->prepare("SELECT id, nickname, twitter, website, auth FROM users WHERE id = :id");
   $req->execute(array('id' => $id));
   return set_usersession_from_req($req);
 }
@@ -59,7 +59,7 @@ function save_usersession() {
     return false;
   }
   retrieve_user_or_create_it();
-  $req = $bdd->prepare("UPDATE user SET nickname = :nickname, twitter = :twitter, website = :website WHERE id = :user_id");
+  $req = $bdd->prepare("UPDATE users SET nickname = :nickname, twitter = :twitter, website = :website WHERE id = :user_id");
   $data = array('user_id' => $_SESSION['user_id'], 'nickname' => $_SESSION['nickname'], 'twitter' => $_SESSION['twitter'], 'website' => $_SESSION['website']);
   $req->execute($data);
   if (!isset($_SESSION['user_auth'])) {

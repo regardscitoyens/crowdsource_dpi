@@ -29,7 +29,7 @@ retrieve_user_or_create_it();
 $req = $bdd->prepare('INSERT INTO tasks (ip, userid, document_id, data, created_at) VALUES (:ip, :user_id, :document_id, :json, NOW());');
 $req->execute(array('ip' => $_SERVER['REMOTE_ADDR'], 'user_id' => $_SESSION['user_id'], 'document_id' => $_SESSION['document_id'], 'json' => $json));
 $doc = get_document_from_id($_SESSION['document_id']);
-$req = $bdd->prepare('UPDATE document SET ips = :ips, tries = :tries WHERE id = :document_id');
+$req = $bdd->prepare('UPDATE documents SET ips = :ips, tries = :tries WHERE id = :document_id');
 $req->execute(array('ips' => $doc['ip'].','.$_SERVER['REMOTE_ADDR'].',', 'tries' => $doc['tries'] + 1, 'document_id' => $_SESSION['document_id']));
 
 $_SESSION['sent_ok'] = true;

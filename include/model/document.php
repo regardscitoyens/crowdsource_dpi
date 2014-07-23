@@ -14,7 +14,7 @@ function get_rand_document() {
     $id = rand(0, 22);
     return get_document_from_id($id);
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM document WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
   $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
   return get_document_from_req($req);
 }
@@ -39,7 +39,7 @@ function get_document_from_name_and_formid($name, $id) {
   if (!$bdd) {
     return get_document_from_id($id);
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM document WHERE parlementaire = :parlementaire AND type = :type");
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE parlementaire = :parlementaire AND type = :type");
   $req->execute(array('parlementaire' => $name, 'type' => $id));
   return get_document_from_req($req);
 }
