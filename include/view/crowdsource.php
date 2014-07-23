@@ -11,9 +11,9 @@
        <?php endif; ?>
        <div class="row">
          <div class="col-md-6">
-	   <?php 	   
+	   <?php
 	   if (!$nodoc) {
-	     include(__DIR__.'/declarationimg.php'); 
+	     include(__DIR__.'/declarationimg.php');
 	   }
 ?>         </div>
          <div class="numerise col-md-6">
@@ -34,7 +34,8 @@
                   <div class="col-xs-4 form-inline">
 	   <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="./save.php?token=<?php echo $token; ?>&pb=1">Les informations remplies sont illisibles</a></li><li><a href="./save.php?token=<?php echo $token; ?>&pb=2">Le formulaire ne correspond pas à la section «&nbsp;<?php echo $section; ?>&nbsp;»</a></li><li><a href="./save.php?token=<?php echo $token; ?>&pb=3">Les informations déclarées semblent incomplètes</a></li></ul></div>
                   </div>
-                  <div class="col-xs-8"><div class="pull-right"><a href="./next.php" class="btn-link">Changer de déclaration</a> <button id="validate" type="submit" class="btn btn-success" data-toggle="modal" data-target="#popupneant"><span class="libelle">Valider le formulaire vide</span>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button></div></div>
+                  <div class="col-xs-8"><div class="pull-right"><button id="validate" type="submit" class="btn btn-success" data-toggle="modal" data-target="#popupneant"><span class="libelle">Valider le formulaire vide</span>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button></div></div>
+                <a style="margin: 10px 25px 0" href="./next.php" class="pull-right btn-link">Changer de déclaration</a>
                  </div>
                  <p class="text-muted" style="margin-top: 20px;">Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur «&nbsp;Signaler un problème&nbsp;», nous vous proposerons un autre extrait de déclaration à saisir.</p>
                </form>
