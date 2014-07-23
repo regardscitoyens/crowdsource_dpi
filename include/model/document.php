@@ -67,3 +67,30 @@ function get_document_from_staticid($id) {
   return $doc;
 }
 
+function get_pc_done() {
+  global $bdd;
+  if (!$bdd) {
+    return 0;
+  }
+
+  $total = get_nb_documents();
+
+  $req = $bdd->prepare("SELECT count(*) as ok FROM tasks");
+  $req->execute();
+  $data = $req->fetch();
+  $done = $data['ok'] / 4;
+  
+  return $done * 100 / $total;
+}
+
+function get_nb_documents() {
+  global $bdd;
+  if (!$bdd) {
+    return 0;
+  }
+
+  $req = $bdd->prepare("SELECT count(*) as total FROM documents");
+  $req->execute();
+  $data = $req->fetch();
+  return $data['total'];
+}

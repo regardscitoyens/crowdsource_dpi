@@ -17,7 +17,7 @@
 	<?php include(__DIR__.'/../model/user.php');?>
                <h4>Top des contributeurs</h1>
                <ol>
-               <?php foreach (users_top() as $user ) {
+		<?php foreach (users_top() as $user ) {
                     echo '<li>';
                     $link = 0;
                     if ($user['twitter']) { $link = 1 ;echo '<a href="http://twitter.com/'.$user['twitter'].'">';}
@@ -29,7 +29,7 @@
                </ol>
                <span><a href="/contributeurs.php">Consulter le top 50</a></span>
               </div>
-              <div class="col-xs-12 text-center"><span class="text-muted text-center">11 000 éléments restent à numériser</span></div>
+	      <div class="col-xs-12 text-center"><span class="text-muted text-center"><?php echo preg_replace('/([0-9][0-9][0-9])$/', ' \1', get_nb_documents()); ?> éléments restent à numériser</span></div>
           </div>
          </div>
         </div>

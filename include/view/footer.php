@@ -75,7 +75,14 @@ function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){s
        $(".numerise input[type='text']").keyup(updatesubmit);
     }
     updatetableevents();
-data = [ { label: "Fait",  data: 75, color: '#5CB85C'}, { label: "A faire",  data: 25, color: '#FFF'} ];
+<?php 
+/****************
+/* STATISTIQUES
+/***************/
+
+$fait = get_pc_done();
+?>
+data = [ { label: "Fait",  data: <?php echo $fait; ?>, color: '#5CB85C'}, { label: "A faire",  data: <?php echo 100 - $fait; ?>, color: '#FFF'} ];
 $.plot("#statpie", data , {series: { pie: { show: true,  label: { radius: 0.33, threshold: 0.1, show: true, formatter: function(data, serie){ return serie.label+'<br/>'+Math.round(10*serie.percent)/10+'%';}}}},legend:{show: false}, grid:{hoverable: true}});
     </script>
       <p></p>
