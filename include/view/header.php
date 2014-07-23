@@ -23,7 +23,8 @@ body: {padding-left: 10px; padding-right: 10px;}
 .numerise .well {background-color: #fBfBdb}
 .numerise .text-muted {font-size: 85%}
 .jumbotron p {font-size: 14px; margin: 16px;}
-h1 {margin-bottom: 20px;}
+.jumbotron h1 {font-size: 44px}
+h1 {margin-bottom: 20px}
 #crowdtable { margin-top: 22px;}
 .consigne { font-size: 15px }
 .page-header {margin: 8px!important}
