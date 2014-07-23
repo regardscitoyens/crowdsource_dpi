@@ -1,6 +1,13 @@
       <div id="crowdsource">
       <?php if ($sent_ok) : ?>
-        <div class="alert alert-info" role="alert">N'hésitez pas à <a href="#signin" data-toggle="modal" data-target="#signin">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. Si vous souhaitez partager la section que vous venez de saisir, elle est <a href="#">consultable ici</a>.</div>
+        <div class="alert alert-info text-center" role="alert">
+<?php
+	 if (!isset($_SESSION['nickname'])) {
+	 echo "N'hésitez pas à <a href=\"#signin\" data-toggle=\"modal\" data-target=\"#signin\">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet.";
+	 }
+	 echo "Si vous souhaitez partager la section que vous venez de saisir, elle est <a href=\"#\">consultable ici</a>.";
+?>
+</div>
        <?php endif; ?>
        <div class="row">
          <div class="col-md-6">
@@ -12,7 +19,7 @@
               Saisir les informations</small>
               </h3>
               <?php if ($sent_ok) : ?>
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success text-center" role="alert">
                   Merci ! Votre saisie a bien été enregistrée.
                 </div>
               <?php endif; ?>

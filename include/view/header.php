@@ -48,7 +48,7 @@ h1 {margin-bottom: 20px;}
             <li<?php if(isset($menu_declaration) && $menu_declaration) echo ' class="active"'; ?>><a target="_blank" href="http://www.hatvp.fr/consulter-les-declarations-rechercher.html">Consulter les déclarations</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#signin" data-toggle="modal" data-target="#signin"><span class="glyphicon glyphicon-user"></span> S'enregistrer</a></li>
+   <li><a href="#signin" data-toggle="modal" data-target="#signin"><span class="glyphicon glyphicon-user"></span> <?php if (isset($_SESSION['nickname'])) {echo $_SESSION['nickname']; } else {echo "S'enregistrer"; }?></a></li>
           </ul>
         </div>
       </div>
