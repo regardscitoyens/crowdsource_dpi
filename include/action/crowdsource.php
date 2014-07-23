@@ -1,8 +1,6 @@
 <?php
 include(__DIR__."/../model/document.php");
 
-session_start();
-
 $doc = get_rand_document();
 
 $nom = $doc['nom'];

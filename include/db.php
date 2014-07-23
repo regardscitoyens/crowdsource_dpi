@@ -8,3 +8,4 @@ if (file_exists(__DIR__.'/config.php')) {
     }
     catch (Exception $error) { die('Erreur : '.$error->getMessage()); }
 }
+session_start();
