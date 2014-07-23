@@ -24,7 +24,7 @@
                     else if ($user['website']) { $link = 1 ;echo '<a target="_blank" href="'.$user['website'].'">';}
                     echo $user['nickname'];
                     if ($link) echo '</a>';
-                    echo'</li>'; 
+                    echo'</li>';
                 } ?>
                </ol>
                <span><a href="contributeurs.php">Consulter le top 50</a></span>
