@@ -27,9 +27,9 @@
                     echo'</li>'; 
                 } ?>
                </ol>
-               <span><a href="/contributeurs.php">Consulter le top 50</a></span>
+               <span><a href="contributeurs.php">Consulter le top 50</a></span>
               </div>
-	      <div class="col-xs-12 text-center"><span class="text-muted text-center"><?php echo preg_replace('/([0-9][0-9][0-9])$/', ' \1', get_nb_documents()); ?> éléments restent à numériser</span></div>
+	      <div class="col-xs-12 text-center"><span class="text-muted text-center"><?php echo preg_replace('/([0-9][0-9][0-9])$/', '&nbsp;\1', get_nb_documents()); ?> éléments restent à numériser</span></div>
           </div>
          </div>
         </div>
