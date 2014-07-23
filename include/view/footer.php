@@ -73,7 +73,7 @@
 	  tr = tr.replace(/n°[0-9]/g, 'n°'+(id+1));
 	  $(this).after(tr);});updatetableevents();
     }
-function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){str += $(this).val();});$(".numerise input[type='text']").each(function(){str += $(this).val();});if(str){$("#validate span.libelle").html('Valider');$("#validate").attr('data-toggle', '');}else{$("#validate span.libelle").html('Valider le formulaire vide');$("#validate").attr('data-toggle', 'modal');}}
+function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){str += $(this).val();});$(".numerise input[type='text']").each(function(){str += $(this).val();});if(str){$("#validate span.libelle").html('Valider');}else{$("#validate span.libelle").html('Valider le formulaire vide');}}
     function updatetableevents() {
   	  updatesubmit();
        $("#crowdtable tr:last td.buttons").html('<span class="add"><button class="form-control btn-primary" ><span class="glyphicon glyphicon-plus"></span></button></span>');
@@ -85,7 +85,7 @@ function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){s
        $(".numerise textarea").keyup(updatesubmit);
        $(".numerise input[type='text']").keyup(updatesubmit);
     }
-    $(".numerise form").submit(function() {if ($("#validate span.libelle").html() == 'Valider'){return true;}else{return false;}});
+    $(".numerise form").submit(function() {if ($("#validate span.libelle").html() == 'Valider'){return true;}else{return confirm("La déclaration présentée est-elle bien vide ou indiquée « néant » ?");}});
     updatetableevents();
 <?php
 /****************
