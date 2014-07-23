@@ -9,3 +9,7 @@ if (file_exists(__DIR__.'/config.php')) {
     catch (Exception $error) { die('Erreur : '.$error->getMessage()); }
 }
 session_start();
+if (isset($_COOKIE['crowdsource_user_auth'])) {
+  require_once(__DIR__.'/model/user.php');
+  retrieve_user_or_create_it();
+}
