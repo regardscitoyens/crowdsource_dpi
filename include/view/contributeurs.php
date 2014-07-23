@@ -1,4 +1,4 @@
-<?php include(__DIR__.'/../model/user.php');?>
+<?php require_once(__DIR__.'/../model/user.php');?>
 <div class='row' style="margin-top: 60px;">
 <div class="col-md-6 col-md-offset-3 well">
 <h1>Top des contributeurs</h1>

@@ -1,6 +1,6 @@
 <?php
-include(__DIR__.'/../model/document.php');
-include(__DIR__.'/../model/user.php');
+require_once(__DIR__.'/../model/document.php');
+require_once(__DIR__.'/../model/user.php');
 
 if (isset($_GET['pb'])) {
   $token = $_GET['token'];
@@ -16,7 +16,9 @@ if ($token != $_SESSION['token'] || !$bdd) {
 }
 if (isset($_GET['pb'])) {
   $data = "PB #".$_GET['pb'];
-}else{
+}else if (isset($_POST['neant'])) {
+  $data = 'NEANT';
+}else {
   $data = array();
   $champ = $_POST['champ'];
   for($x = 0 ; $x < 100 ; $x++) {
@@ -36,7 +38,6 @@ if (isset($_GET['pb'])) {
   if (!count($data)) $data = 'NEANT';
 }
 $json = json_encode($data);
-
 
 retrieve_user_or_create_it();
 $req = $bdd->prepare('INSERT INTO tasks (ip, userid, document_id, data, created_at) VALUES (:ip, :user_id, :document_id, :json, NOW());');
