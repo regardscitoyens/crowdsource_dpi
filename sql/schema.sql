@@ -36,18 +36,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `website` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-ALTER TABLE `users`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth` (`auth`);
-ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `users` ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth` (`auth`);
+ALTER TABLE `users` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 
-ALTER TABLE `tasks`
- ADD PRIMARY KEY (`id`), ADD KEY `nickname` (`nickname`), ADD FULLTEXT KEY `data` (`data`);
+ALTER TABLE `tasks` ADD PRIMARY KEY (`id`), ADD KEY `nickname` (`nickname`), ADD FULLTEXT KEY `data` (`data`);
+ALTER TABLE `tasks` MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `documents`
- ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `parlementaire` (`parlementaire`,`ips`);
-ALTER TABLE `documents`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `documents` ADD PRIMARY KEY (`id`), ADD FULLTEXT KEY `parlementaire` (`parlementaire`,`ips`);
+ALTER TABLE `documents` MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 ALTER TABLE `documents` ADD UNIQUE(`img`);
 ALTER TABLE `documents` ADD UNIQUE( `type`, `parlementaire`);

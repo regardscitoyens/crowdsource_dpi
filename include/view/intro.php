@@ -14,15 +14,20 @@
                <div id="statpie" style="height: 200px;"></div>
             </div>
             <div class="col-xs-6">
+	<?php include(__DIR__.'/../model/user.php');?>
                <h4>Top des contributeurs</h1>
                <ol>
-                <li>Truc</li>
-                <li>Bidule</li>
-                <li>Machin</li>
-                <li>Chose</li>
-                <li>Muche</li>
-               </ul>
-               <span><a href="#">Consulter le top 50</a></span>
+               <?php foreach (users_top() as $user ) {
+                    echo '<li>';
+                    $link = 0;
+                    if ($user['twitter']) { $link = 1 ;echo '<a href="http://twitter.com/'.$user['twitter'].'">';}
+                    else if ($user['website']) { $link = 1 ;echo '<a href="'.$user['website'].'">';}
+                    echo $user['nickname'];
+                    if ($link) echo '</a>';
+                    echo'</li>'; 
+                } ?>
+               </ol>
+               <span><a href="/contributeurs.php">Consulter le top 50</a></span>
               </div>
               <div class="col-xs-12 text-center"><span class="text-muted text-center">11 000 éléments restent à numériser</span></div>
           </div>

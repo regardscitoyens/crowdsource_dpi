@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__.'/../db.php');
+require_once(__DIR__.'/../db.php');
 
 $noms = array("Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Christian Eckert","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député","Un député");
 $images = array("img/eckert-christian-di-gouvernement-mask-0_1.jpg","img/eckert-christian-di-gouvernement-mask-1_1.jpg","img/eckert-christian-di-gouvernement-mask-1_2.jpg","img/eckert-christian-di-gouvernement-mask-2_1.jpg","img/eckert-christian-di-gouvernement-mask-2_2.jpg","img/eckert-christian-di-gouvernement-mask-3_1.jpg","img/eckert-christian-di-gouvernement-mask-3_2.jpg","img/eckert-christian-di-gouvernement-mask-4_1.jpg","img/eckert-christian-di-gouvernement-mask-4_2.jpg","img/eckert-christian-di-gouvernement-mask-5_1.jpg","img/eckert-christian-di-gouvernement-mask-5_2.jpg","img/DIA_janvier_2014-mask-1_1.jpg","img/DIA_janvier_2014-mask-1_2.jpg","img/DIA_janvier_2014-mask-1_3.jpg","img/DIA_janvier_2014-mask-2_1.jpg","img/DIA_janvier_2014-mask-2_2.jpg","img/DIA_janvier_2014-mask-3_1.jpg","img/DIA_janvier_2014-mask-3_2.jpg","img/DIA_janvier_2014-mask-3_3.jpg","img/DIA_janvier_2014-mask-4_1.jpg","img/DIA_janvier_2014-mask-4_2.jpg","img/DIA_janvier_2014-mask-4_3.jpg","img/DIA_janvier_2014-mask-5_1.jpg");
@@ -16,6 +16,16 @@ function get_rand_document() {
   }
   $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
   $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
+  return get_document_from_req($req);
+}
+
+function get_document_from_id($id) {
+  global $bdd;
+  if (!$bdd) {
+    return array();
+  }
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE id = :id");
+  $req->execute(array('id' => $id));
   return get_document_from_req($req);
 }
 
@@ -37,14 +47,14 @@ function get_document_from_req($req) {
 function get_document_from_name_and_formid($name, $id) {
   global $bdd;
   if (!$bdd) {
-    return get_document_from_id($id);
+    return get_document_from_staticid($id);
   }
   $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries FROM documents WHERE parlementaire = :parlementaire AND type = :type");
   $req->execute(array('parlementaire' => $name, 'type' => $id));
   return get_document_from_req($req);
 }
 
-function get_document_from_id($id) {
+function get_document_from_staticid($id) {
   global $noms, $sections, $images, $forms;
   $doc = array();
   $doc['nom'] = $noms[$id];

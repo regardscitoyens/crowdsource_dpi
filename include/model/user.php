@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__.'/../db.php');
+require_once(__DIR__.'/../db.php');
 
 function retrieve_user_or_create_it() {
   global $bdd;
@@ -67,4 +67,21 @@ function save_usersession() {
   }
   setcookie("crowdsource_user_auth", $_SESSION['user_auth'], strtotime( '+7 days' ));
   return true;
+}
+
+function users_top($limit = 5) {
+    global $bdd;
+  if (!$bdd) {
+    return array(array('nickname' => 'truc', 'twitter' => 'http://twitter.com/truc', 'website' => 'http://site.com/'), array('nickname' => 'machin', 'twitter' => 'http://twitter.com/machin'));
+  }
+  $req = $bdd->prepare("SELECT count(tasks.id) as nb, userid, users.nickname, twitter, website FROM users, tasks WHERE tasks.userid = users.id GROUP BY users.id ORDER BY count(tasks.id) DESC LIMIT ".$limit);
+  $req->execute();
+  $top = array();
+  while($data = $req->fetch()){
+    if (!$data['nickname']) {
+      $data['nickname'] = 'Utilisateur anonyme n°'.$data['userid'];
+    }
+    array_push($top, array('nickname' => $data['nickname'], 'twitter' => $data['twitter'], 'website' => $data['website'], 'nb' => $data['nb']));
+  }
+  return $top;
 }
