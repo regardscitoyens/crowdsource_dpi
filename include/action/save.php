@@ -2,25 +2,38 @@
 include(__DIR__.'/../model/document.php');
 include(__DIR__.'/../model/user.php');
 
-if ($_POST['token'] != $_SESSION['token'] || !$bdd) {
+if (isset($_GET['pb'])) {
+  $token = $_GET['token'];
+}else{
+  $token = $_POST['token'];
+}
+
+if ($token != $_SESSION['token'] || !$bdd) {
   $_SESSION['sent_ok'] = true;
   $_SESSION['token'] = null;
   header("Location: ./#crowdsource\n");
   exit;
 }
-$data = array();
-$champ = $_POST['champ'];
-for($x = 0 ; $x < 100 ; $x++) {
-  $subdata = array();
-  for($y = 0 ; $y < 100 ; $y++) {
-    if (!isset($champ[$x.','.$y]))
-      break;
-    array_push($subdata, $champ[$x.','.$y]);
+if (isset($_GET['pb'])) {
+  $data = "PB #".$_GET['pb'];
+}else{
+  $data = array();
+  $champ = $_POST['champ'];
+  for($x = 0 ; $x < 100 ; $x++) {
+    $subdata = array();
+    $fields = '';
+    for($y = 0 ; $y < 100 ; $y++) {
+      if (!isset($champ[$x.','.$y]))
+	break;
+      $fields .= $champ[$x.','.$y];
+      array_push($subdata, $champ[$x.','.$y]);
+    }
+    if (count($subdata) && $fields) {
+      array_push($data, $subdata) ;
+    }
+    if (!$y) break;
   }
-  if (count($subdata)) {
-    array_push($data, $subdata) ;
-  }
-  if (!$y) break;
+  if (!count($data)) $data = 'NEANT';
 }
 $json = json_encode($data);
 

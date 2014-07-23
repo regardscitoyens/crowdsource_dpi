@@ -32,7 +32,13 @@ function get_document_from_id($id) {
 function get_document_from_req($req) {
   global $sections;
   $data = $req->fetch();
+  if (!$data) {
+    return 0;
+  }
   $doc['nom'] = $data['parlementaire'];
+  if (!$data['type']) {
+    throw new Exception($data['id']." has no type :(");
+  }
   $doc['section'] = $sections[$data['type']];
   $doc['img'] = $data['img'];
   $doc['form'] = 'form'.$data['type'].'.php';

@@ -10,19 +10,19 @@
             <div class="form-group">
               <label for="nickname" class="col-sm-5 control-label">Nom/Pseudo</label>
               <div class="col-sm-7">
-                <input class="form-control" name="nickname" required='true' value="<?php echo $nickname; ?>" placeholder="Mon pseudo">
+                <input class="form-control" name="nickname" required='true' value="<?php if (isset($nickname)) echo $nickname; ?>" placeholder="Mon pseudo">
               </div>
             </div>
             <div class="form-group">
               <label for="twitter" class="col-sm-5 control-label">Utilisateur Twitter/Identica</label>
               <div class="col-sm-7">
-                 <input type="text" class="form-control" name="twitter" value="<?php echo $twitter; ?>" placeholder="@utilisateur">
+                 <input type="text" class="form-control" name="twitter" value="<?php if (isset($twitter)) echo $twitter; ?>" placeholder="@utilisateur">
               </div>
             </div>
             <div class="form-group">
               <label for="website" class="col-sm-5 control-label">Site web</label>
               <div class="col-sm-7">
-                 <input type="text" class="form-control" name="website" value="<?php echo $website; ?>" placeholder="http://....">
+                 <input type="text" class="form-control" name="website" value="<?php if (isset($website)) echo $website; ?>" placeholder="http://....">
               </div>
             </div>
             <div class="form-group">
