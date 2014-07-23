@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `auth` varchar(50) NOT NULL,
   `nickname` varchar(100) NOT NULL,
   `twitter` varchar(100) NOT NULL,
-  `wbesite` varchar(100) NOT NULL
+  `website` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 ALTER TABLE `users`
