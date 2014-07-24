@@ -8,6 +8,30 @@
 <link href="css/jquery.fs.zoomer.css" rel="stylesheet">
 <link href="css/datepicker.css" rel="stylesheet">
 <link href="data:text/css;charset=utf-8," data-href="css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+<link rel="shortcut icon" href="img/favicon.png">
+
+<?php
+$cururl = "http://" . $_SERVER['HTTP_HOST']  . $_SERVER['REQUEST_URI'];
+$baseurl = preg_replace("#/[^/]*$#", "/", $cururl);
+?>
+<!-- Twitter metas -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@RegardsCitoyens">
+<meta name="twitter:url" content="<?php echo $cururl;?>">
+<meta name="twitter:title" content="Numérisons les déclarations d'intérêts - Regards Citoyens" />
+<meta name="twitter:description" content="Déclaration d'intérêts de <?php echo $nom." - ".$section; ?>" />
+<meta name="twitter:image" content="<?php echo $baseurl.$img; ?>">
+
+<!-- Facebook metas -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Numérisons les déclarations d'intérêts - Regards Citoyens" />
+<meta property="og:site_name" content="Numérisons les déclarations d'intérêts - Regards Citoyens" />
+<meta property="og:description" content="Déclaration d'intérêts de <?php echo $nom." - ".$section; ?>" />
+<meta property="og:url" content="<?php echo $cururl;?>" />
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="<?php echo $baseurl.$img; ?>" />
+<meta property="og:image:type" content="image/jpeg">
+
 <style>
 .logo{float:right;height:50px;margin-right:6px;margin-top:2px;}
 .declaration{background: gray; padding: 10px;}

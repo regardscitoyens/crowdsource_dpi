@@ -7,5 +7,5 @@
               </div>
              </div>
              <div class="declaration"><img width="100%" src="<?php echo $img; ?>" class="zoom"/></div>
-             <p id="permalink-img" class="text-center"><a target="_blank" href="./declaration.php?partie=<?php echo $partie; ?>&name=<?php echo $nom; ?>"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cet extrait de déclaration</a></p>
+             <p id="permalink-img" class="text-center"><a target="_blank" href="./declaration.php?partie=<?php echo $partie; ?>&nom=<?php echo $nom; ?>"><span class="glyphicon glyphicon-link"></span> Lien permanent vers cet extrait de déclaration</a></p>
           </div>
