@@ -27,7 +27,10 @@ if (isset($_SESSION['nickname'])) {
 
 $_SESSION['token'] = md5(rand());
 $token = $_SESSION['token'];
-$sent_ok = $_SESSION['sent_ok'];
+$sent_ok = '';
+if (isset($_SESSION['sent_ok'])) {
+  $sent_ok = $_SESSION['sent_ok'];
+}
 $_SESSION['sent_ok'] = null;
 
 $menu_home = 1;
