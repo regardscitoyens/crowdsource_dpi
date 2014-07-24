@@ -65,26 +65,39 @@
     $("img.zoom").elevateZoom({ zoomType: "lens", lensShape : "round", lensSize    : 300});
     $(".date").datepicker({language: 'fr', 'format': 'mm/yyyy', viewMode: "months", minViewMode: "months"});
     $(".addrow").click(function(){$("#crowdtable").append('<tr class="row">'+$("#crowdtable tr.userline").html()+'</tr>'); });
-    function removerow() {$(this).parent().parent().parent().remove();updatetableevents();}
+    function removerow() {$(this).parent().parent().parent().remove();updatetableevents();return false;}
     function addrow() {
-       $(this).parent().parent().parent().each(function() {
+       $("#crowdsource tr:last").each(function() {
           var tr = '<tr class="row userline ">'+$(this).html()+"</tr>";
 	  var id = tr.match(/\[([0-9]*),/)[1]*1+1;
 	  tr = tr.replace(/\[[0-9]*,/g, '['+id+',');
 	  tr = tr.replace(/n°[0-9]/g, 'n°'+(id+1));
-	  $(this).after(tr);});updatetableevents();
+	  $(this).after(tr);});
     }
-function updatesubmit() {var str = ''; $(".numerise textarea").each(function(){str += $(this).val();});$(".numerise input[type='text']").each(function(){str += $(this).val();});if(str){$("#validate span.libelle").html('Valider');}else{$("#validate span.libelle").html('Valider le formulaire vide');}}
+    function updatesubmit() {
+          var str = ''; 
+          $(".numerise textarea").each(function(){str += $(this).val();});
+          $(".numerise input[type='text']").each(function(){str += $(this).val();});
+          if(str){$("#validate span.libelle").html('Valider');}else{$("#validate span.libelle").html('Valider le formulaire vide');}
+          str = '';
+          $(".numerise .extracol textarea").each(function(){str += $(this).val();});
+          $(".numerise .extracol input[type='text']").each(function(){str += $(this).val();});
+          if (str) {
+             $("#crowdtable tr:last").removeClass('extracol');
+             addrow();
+             $("#crowdtable tr:last").addClass('extracol');
+          }
+          $(".numerise textarea").unbind('keyup');
+          $(".numerise input[type='text']").unbind('keyup');
+          $(".numerise textarea").bind('keyup', updatesubmit);
+          $(".numerise input[type='text']").bind('keyup', updatesubmit);
+          $(".remove button").unbind('click');
+          $(".remove button").bind('click', removerow);
+    }
     function updatetableevents() {
-  	  updatesubmit();
-       $("#crowdtable tr:last td.buttons").html('<span class="add"><button class="form-control btn-primary" ><span class="glyphicon glyphicon-plus"></span></button></span>');
-       $("#crowdtable tr:not(:last) td.buttons").html('<span class="remove"><button class="form-control btn-danger"><span class="glyphicon glyphicon-remove"></span></button></span>');
+       updatesubmit();
        var trid = 0;
        $("#crowdtable tr:not(:first)").each(function(){$(this).find("textarea").each(function(){$(this).attr('name', $(this).attr('name').replace(/\[[0-9]*\,/, '['+trid+','));$(this).attr('placeholder', $(this).attr('placeholder').replace(/n°[0-9]*/, 'n°'+(trid+1)));}); trid++;});
-       $(".remove button").click(removerow);
-       $(".add button").click(addrow);
-       $(".numerise textarea").keyup(updatesubmit);
-       $(".numerise input[type='text']").keyup(updatesubmit);
     }
     $(".numerise form").submit(function() {if ($("#validate span.libelle").html() == 'Valider'){return true;}else{return confirm("La déclaration présentée est-elle bien vide ou indiquée « néant » ?");}});
     updatetableevents();

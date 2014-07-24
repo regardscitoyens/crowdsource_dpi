@@ -53,6 +53,9 @@ h1 {margin-bottom: 20px}
 .consigne { font-size: 15px }
 .page-header {margin: 8px!important}
 #permalink-img, #start-num{padding-top:12px;}
+#crowdtable tr.extracol {opacity: 0.5}
+#crowdtable tr.extracol td.buttons {display: none}
+
 </style>
 </head>
 <body>
