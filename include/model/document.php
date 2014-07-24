@@ -100,6 +100,7 @@ function get_pc_done() {
 }
 
 function get_nb_documents() {
+  return 10920;
   global $bdd;
   if (!$bdd) {
     return 0;
