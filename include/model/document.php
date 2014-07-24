@@ -14,8 +14,13 @@ function get_rand_document() {
     $id = rand(0, 22);
     return get_document_from_id($id);
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
-  $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
+  if (isset($_GET['goto'])) {
+    $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE id = :id ");
+    $req->execute(array('id' => $_GET['goto']));
+  }else{
+    $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
+    $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
+  }
   return get_document_from_req($req);
 }
 
