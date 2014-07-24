@@ -48,7 +48,7 @@ function get_document_from_req($req) {
   $doc['img'] = $data['img'];
   $doc['form'] = 'form'.$data['type'].'.php';
   $doc['avatar'] = $data['parlementaire_avatarurl'];
-  $doc['partie'] = $data['type'] + 1;
+  $doc['partie'] = $data['type'];
   $doc['id'] = $data['id'];
   $doc['ips'] = $data['ips'];
   $doc['tries'] = $data['tries'];
@@ -75,7 +75,7 @@ function get_document_from_staticid($id) {
   $doc['form'] = $forms[$id];
   $doc['avatar'] = ($doc['nom'] == "Christian Eckert") ? "http://www.nosdeputes.fr/depute/photo/christian-eckert/80" : "http://www.nosdeputes.fr/depute/photo/catherine-pen/80";
   $doc['id'] = $id;
-  $doc['partie'] = $id + 1;
+  $doc['partie'] = $id;
   $doc['source'] = "http://www.hatvp.fr/consulter-les-declarations-rechercher.html";
   return $doc;
 }
