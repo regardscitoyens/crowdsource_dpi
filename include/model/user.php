@@ -25,8 +25,8 @@ function set_usersession_from_auth($auth) {
   if (!$bdd) {
     return 0;
   }
-  $req = $bdd->prepare("SELECT id, nickname, twitter, website, auth FROM users WHERE auth = :auth");
-  $req->execute(array('auth' => $auth));
+  $req = $bdd->prepare("SELECT id, nickname, twitter, website, auth FROM users WHERE auth LIKE :auth");
+  $req->execute(array('auth' => '%'.$auth.'%'));
   return set_usersession_from_req($req);
 }
 
@@ -43,7 +43,7 @@ function set_usersession_from_id($id) {
 function set_usersession_from_req($req) {
   $data = $req->fetch();
   $_SESSION['user_id'] = $data['id'];
-  $_SESSION['user_auth'] = $data['auth'];
+  $_SESSION['user_auth'] = preg_replace('/;.*/', '', $data['auth']);
   if (!isset($_SESSION['nickname']))
     $_SESSION['nickname'] = $data['nickname'];
   if (!isset($_SESSION['twitter']))
