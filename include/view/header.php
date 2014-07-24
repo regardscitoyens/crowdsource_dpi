@@ -55,7 +55,7 @@ h1 {margin-bottom: 20px}
 #permalink-img, #start-num{padding-top:12px;}
 #crowdtable tr.extracol {opacity: 0.5}
 #crowdtable tr.extracol td.buttons {display: none}
-
+.container-fluid {overflow: scroll;}
 </style>
 </head>
 <body>
