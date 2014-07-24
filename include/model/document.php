@@ -93,11 +93,23 @@ function get_nb_contribs() {
 
 function get_pc_done() {
   $total = get_nb_documents();
-  $contribs = get_nb_contribs();
-  $done = $contribs / 4;
-
+  //  $contribs = get_nb_contribs();
+  $done = get_nb_done();
   return $done * 100 / $total;
 }
+
+function get_nb_done() {
+  global $bdd;
+  if (!$bdd) {
+    return 0;
+  }
+
+  $req = $bdd->prepare("SELECT count(*) as done FROM documents WHERE done = 1");
+  $req->execute();
+  $data = $req->fetch();
+  return $data['done'];
+}
+
 
 function get_nb_documents() {
   return 10920;
