@@ -32,7 +32,7 @@
                  <?php include("../include/view/forms/".$form); ?>
                  <div class="row">
                   <div class="col-xs-4 form-inline">
-	   <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="./save.php?token=<?php echo $token; ?>&pb=1">Les informations remplies sont illisibles</a></li><li><a href="./save.php?token=<?php echo $token; ?>&pb=2">Le formulaire ne correspond pas à la section «&nbsp;<?php echo $section; ?>&nbsp;»</a></li><li><a href="./save.php?token=<?php echo $token; ?>&pb=3">Les informations déclarées semblent incomplètes</a></li></ul></div>
+	   <div class="btn-group control"><button type="button" class="form-control btn btn-danger dropdown-toggle" data-toggle="dropdown">Signaler un problème <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="./save.php?token=<?php echo $token; ?>&pb=1">Les informations remplies sont illisibles</a></li><li><a href="./save.php?token=<?php echo $token; ?>&pb=2">Le scan semble mal découpé</a></li><li><a href="./save.php?token=<?php echo $token; ?>&pb=3">Les informations déclarées semblent incomplètes</a></li></ul></div>
                   </div>
                   <div class="col-xs-8"><div class="pull-right"><button id="validate" type="submit" class="btn btn-success"><span class="libelle">Valider le formulaire vide</span>&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button></div></div>
                 <a style="margin: 10px 25px 0" href="./next.php" class="pull-right btn-link">Changer de déclaration</a>
