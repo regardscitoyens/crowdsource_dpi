@@ -20,6 +20,10 @@ function get_rand_document() {
   }else{
     $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE enabled = 1 AND done = 0 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
     $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
+    if (!$req->rowCount()) {
+      $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source FROM documents WHERE enabled = 1 AND ips NOT LIKE :ip ORDER BY rand() LIMIT 1 ");
+      $req->execute(array('ip' => '%,'.$_SERVER['REMOTE_ADDR'].',%'));
+   }
   }
   return get_document_from_req($req);
 }
