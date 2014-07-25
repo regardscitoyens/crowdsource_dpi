@@ -10,27 +10,29 @@ function simplifystring($str) {
 $req = $bdd->prepare("SELECT id FROM documents WHERE done = 0 AND tries > 2");
 $req->execute();
 while($doc = $req->fetch()) {
-  $req2 = $bdd->prepare("SELECT data FROM tasks WHERE document_id = :id");
+  $req2 = $bdd->prepare("SELECT id, data FROM tasks WHERE document_id = :id");
   $req2->execute(array('id' => $doc['id']));
   $data = array();
   while($task = $req2->fetch()) {
-    array_push($data, $task['data']);
+    array_push($data, array('data' => $task['data'], 'id' => $task['id']));
   }
   $eguals = 0;
   $done = 0;
+  $selected = null;
   for($i = 0 ; $i < count($data) ; $i++) {
     for($y = $i + 1 ; $y < count($data); $y++) {
-      if (simplifystring($data[$i]) == simplifystring($data[$y])) {
+      if (simplifystring($data[$i]['data']) == simplifystring($data[$y]['data'])) {
 	$eguals++;
       }
       if ($eguals > 2) {
 	$done = 1;
+	$selected = $data[$i]['id'];
 	break 2;
       }
     }
   }
   if ($done) {
-    $req3 = $bdd->prepare("UPDATE documents SET done = 1 WHERE id = :id");
-    $req3->execute(array('id' => $doc['id']));
+    $req3 = $bdd->prepare("UPDATE documents SET done = 1, selected_task = :task_id WHERE id = :id");
+    $req3->execute(array('id' => $doc['id'], 'task_id' => $selected));
   }
 }
