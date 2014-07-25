@@ -10,7 +10,7 @@ function simplifystring($str) {
 $req = $bdd->prepare("SELECT id FROM documents WHERE done = 0 AND tries > 2");
 $req->execute();
 while($doc = $req->fetch()) {
-  $req2 = $bdd->prepare("SELECT id, data FROM tasks WHERE document_id = :id");
+  $req2 = $bdd->prepare("SELECT id, data FROM tasks WHERE document_id = :id AND data != '\"PB #1\"'");
   $req2->execute(array('id' => $doc['id']));
   $data = array();
   while($task = $req2->fetch()) {
