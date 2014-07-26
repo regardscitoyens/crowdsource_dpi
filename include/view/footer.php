@@ -63,7 +63,8 @@
     <script type="text/javascript" src="js/jquery.flot.pie.min.js"></script>
     <script>
     $("img.zoom").elevateZoom({ zoomType: "lens", lensShape : "round", lensSize    : 300});
-    $(".date").datepicker({language: 'fr', 'format': 'mm/yyyy', viewMode: "months", minViewMode: "months"});
+    $(".date").datepicker({language: 'fr', format: 'dd/mm/yyyy', startDate: '01/01/2014', endDate: '31/07/2014', autoclose: true});
+    $(".date input").val("");
     $(".addrow").click(function(){$("#crowdtable").append('<tr class="row">'+$("#crowdtable tr.userline").html()+'</tr>'); });
     function removerow() {$(this).parent().parent().parent().remove();updatetableevents();return false;}
     function addrow() {
@@ -89,8 +90,10 @@
           }
           $(".numerise textarea").unbind('keyup');
           $(".numerise input[type='text']").unbind('keyup');
+          $(".numerise input[type='text']").unbind('change');
           $(".numerise textarea").bind('keyup', updatesubmit);
           $(".numerise input[type='text']").bind('keyup', updatesubmit);
+          $(".numerise input[type='text']").bind('change', updatesubmit);
           $(".remove button").unbind('click');
           $(".remove button").bind('click', removerow);
     }
