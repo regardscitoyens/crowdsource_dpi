@@ -15,7 +15,9 @@ function simplifystring($str) {
 		     strtolower($str))))))))));
 }
 $sql = "SELECT id FROM documents WHERE done = 0 AND tries > 2";
-
+if (isset($argv[1])) {
+  $sql .= " AND id = ".$argv[1];
+}
 $req = $bdd->prepare($sql);
 $req->execute();
 while($doc = $req->fetch()) {
@@ -35,6 +37,11 @@ while($doc = $req->fetch()) {
 	continue;
       }
       $sim = similar_text(simplifystring($data[$i]['data']), simplifystring($data[$y]['data']), $pc);
+      if (isset($argv[1]) && $pc > 90) {
+	print preg_replace('/\n/', '', $data[$i]['data'])." - \n".preg_replace('/\n/', '', $data[$y]['data'])."\n";
+	print simplifystring($data[$i]['data'])." - \n".simplifystring($data[$y]['data'])."\n";
+	print $sim." - $pc\n";
+      }
       if (simplifystring($data[$i]['data']) == simplifystring($data[$y]['data'])) {
 	$eguals++;
 	$selected = $data[$i]['id'];
