@@ -3,9 +3,9 @@
 include(__DIR__.'/../include/model/document.php');
 
 function simplifystring($str) {
-  return preg_replace('/\\'.'.00e0/', 'a', 
-	preg_replace('/\\'.'.00e7/', 'c', 
-	preg_replace('/\\'.'.00e[89ba]/', 'e', 
+  return preg_replace('/..00e0/', 'a',
+	preg_replace('/..00e7/', 'c',
+	preg_replace('/..00e[89ba]/', 'e',
 	preg_replace('/euros?/i', '€', 
 	preg_replace('/\\\[nr]/', '', 
 	preg_replace('/[\(\) ,\.-\/]/', '', 
