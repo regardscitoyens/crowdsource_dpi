@@ -38,6 +38,7 @@
                 <a style="margin: 10px 25px 0" href="./next.php" class="pull-right btn-link">Changer de déclaration</a>
                  </div>
                  <p class="text-muted" style="margin-top: 20px;">Si vous avez le sentiment que nous avons mal détecté cette partie ou qu'il manque des informations, merci de nous l'indiquer en cliquant sur «&nbsp;Signaler un problème&nbsp;», nous vous proposerons un autre extrait de déclaration à saisir.</p>
+                 <p class="text-muted"><a href="#faq">Un doute ou une question ? cliquez ici pour lire les Questions Fréquentes.</a></p>
                </form>
 	   <?php else : ?>
 	   <p class="text-center">Nous n'avons plus de document à vous faire numériser !! </p>
