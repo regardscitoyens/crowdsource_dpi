@@ -6,7 +6,7 @@
 	 echo "N'hésitez pas à <a href=\"#signin\" data-toggle=\"modal\" data-target=\"#signin\">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. ";
 	 }
      echo "Si vous souhaitez partager la section que vous venez de saisir, elle est <a href=\"".$_SESSION['lastpage']."\">consultable ici</a>.";
-     $_SESSION['lastpage'] = "";
+     $_SESSION['lastpage'] = null;
 ?>
 </div>
        <?php endif; ?>
