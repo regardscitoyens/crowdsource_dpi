@@ -9,7 +9,6 @@ if (!$doc) {
   header('Location: '.$baseurl, true, 301);
   die();
 }
-$type = $doc['type'];
 $nom = $doc['nom'];
 $avatar = $doc['avatar'];
 $img = $doc['img'];
@@ -18,3 +17,8 @@ $partie = $doc['partie'];
 $source = $doc['source'];
 
 $menu_declaration = 1;
+
+if ($doc['done'] || $_GET['showcontribs']) {
+  $numerisations = get_document_tasks($doc['id']);
+}
+
