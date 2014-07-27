@@ -16,5 +16,6 @@ $avatar = $doc['avatar'];
 $img = $doc['img'];
 $section = $doc['section'];
 $partie = $doc['partie'];
+$source = $doc['source'];
 
 $menu_declaration = 1;
