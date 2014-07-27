@@ -56,7 +56,10 @@ function get_document_from_req($req) {
   $doc['id'] = $data['id'];
   $doc['ips'] = $data['ips'];
   $doc['tries'] = $data['tries'];
-  if (isset($data['done'])) $doc['done'] = $data['done'];
+  if (isset($data['done'])) {
+    $doc['done'] = $data['done'];
+    $doc['task'] = $data['selected_task'];
+  }
   $doc['source'] = $data['source'];
   return $doc;
 }
@@ -66,7 +69,7 @@ function get_document_from_name_and_formid($name, $id) {
   if (!$bdd) {
     return get_document_from_staticid($id);
   }
-  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source, done FROM documents WHERE parlementaire = :parlementaire AND type = :type");
+  $req = $bdd->prepare("SELECT parlementaire, type, img, parlementaire_avatarurl, id, ips, tries, source, selected_task, done FROM documents WHERE parlementaire = :parlementaire AND type = :type");
   $req->execute(array('parlementaire' => $name, 'type' => $id));
   return get_document_from_req($req);
 }
@@ -91,7 +94,7 @@ function get_document_tasks($id) {
   if (!$bdd) {
     return $tasks;
   }
-  $req = $bdd->prepare("SELECT nickname, created_at, data, userid FROM tasks WHERE document_id = :id ORDER BY id");
+  $req = $bdd->prepare("SELECT id, nickname, created_at, data, userid FROM tasks WHERE document_id = :id ORDER BY id");
   $req->execute(array('id' => $id));
   while($data = $req->fetch()){
     if (!$data['nickname']) {

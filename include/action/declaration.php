@@ -15,10 +15,12 @@ $img = $doc['img'];
 $section = $doc['section'];
 $partie = $doc['partie'];
 $source = $doc['source'];
+$numdone = $doc['done'];
 
 $menu_declaration = 1;
 
-if ($doc['done'] || $_GET['showcontribs']) {
+if ($numdone || $_GET['showcontribs']) {
   $numerisations = get_document_tasks($doc['id']);
+  $task = $doc['task'];
 }
 

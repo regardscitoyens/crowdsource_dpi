@@ -59,7 +59,9 @@ h1 {margin-bottom: 20px}
 .numerisations {margin-top:90px;}
 .numerisations table {width: 95%; margin: 10px; text-align: center}
 .numerisations td {border: 1px grey solid; padding: 5px; max-width: 50%}
+.numerisations .selected td {background-color: #fBfBdb}
 .numerisations .auteur td {text-align: right; font-size: 80%; color: grey; width: 100%; border: none}
+.numerisations .selected2 td {color: black; font-weight: bold}
 </style>
 </head>
 <body>
