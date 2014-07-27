@@ -3,6 +3,7 @@
 <?php include(__DIR__.'/declarationimg.php');  ?>
   <?php if ($numerisations) :
   $exceptions = array(
+    '"CORRECTED"' => "Problème remonté, corrigé",
     '"NEANT"' => "NÉANT",
     '"PB #1"' => "ILLISIBLE",
     '"PB #2"' => "MAUVAIS SCAN",
@@ -27,6 +28,7 @@
           if (isset($exceptions[$num["data"]])) {
             echo '<tr'.$selected.'><td colspan="'.$numcol.'">'.$exceptions[$num["data"]].'</td><tr>';
           } else {
+
             foreach(json_decode($num['data']) as $row) {
               echo '<tr'.$selected.'>';
               foreach($row as $case) {
