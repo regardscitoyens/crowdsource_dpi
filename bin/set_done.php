@@ -15,7 +15,7 @@ function simplifystring($str) {
 $req = $bdd->prepare("SELECT id FROM documents WHERE done = 0 AND tries > 2");
 $req->execute();
 while($doc = $req->fetch()) {
-  $req2 = $bdd->prepare("SELECT id, data FROM tasks WHERE document_id = :id AND data != '\"PB #1\"'");
+  $req2 = $bdd->prepare("SELECT id, data FROM tasks WHERE document_id = :id AND data != '\"PB #1\"' AND data != '\"PB #3\"' AND data != '\"CORRECTED\"'");
   $req2->execute(array('id' => $doc['id']));
   $data = array();
   while($task = $req2->fetch()) {
@@ -26,6 +26,9 @@ while($doc = $req->fetch()) {
   $selected = null;
   for($i = 0 ; $i < count($data) ; $i++) {
     for($y = $i + 1 ; $y < count($data); $y++) {
+      if (preg_match('/"(PB #[13]|CORRECTED)"/', $data[$y]['data'])) {
+	continue;
+      }
       if (simplifystring($data[$i]['data']) == simplifystring($data[$y]['data'])) {
 	$eguals++;
       }
