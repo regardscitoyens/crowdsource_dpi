@@ -3,6 +3,10 @@
 include(__DIR__.'/../model/document.php');
 
 $doc = get_document_from_name_and_formid($_GET['nom'], $_GET['partie']);
+if (!$doc || !count($doc)) {
+  echo "Erreur";
+  exit();
+}
 $type = $doc['type'];
 $nom = $doc['nom'];
 $avatar = $doc['avatar'];
