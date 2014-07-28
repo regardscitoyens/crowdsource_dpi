@@ -52,7 +52,6 @@ while($doc = $req->fetch()) {
 	$select_pc = 1;
       }
       if ($equals > 2 && $selected) {
-	echo "DONE!\n";
 	$done = 1;
 	break 2;
       }
