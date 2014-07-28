@@ -126,6 +126,6 @@ while($doc = $req->fetch()) {
   if ($done) {
     if (isset($argv[1])) echo "Done !\n";
     $req3 = $bdd->prepare("UPDATE documents SET done = 1, selected_task = :task_id WHERE id = :id");
-    //    $req3->execute(array('id' => $doc['id'], 'task_id' => $selected));
+    $req3->execute(array('id' => $doc['id'], 'task_id' => $selected));
   }
 }
