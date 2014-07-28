@@ -94,11 +94,13 @@ function get_document_tasks($id) {
   if (!$bdd) {
     return $tasks;
   }
-  $req = $bdd->prepare("SELECT id, nickname, created_at, data, userid FROM tasks WHERE document_id = :id ORDER BY id");
+  $req = $bdd->prepare('SELECT t.id, t.created_at, t.data, t.userid, u.nickname FROM tasks t JOIN users u ON t.userid = u.id OR t.userid = "" WHERE t.document_id = :id GROUP BY t.id ORDER BY t.id');
   $req->execute(array('id' => $id));
   while($data = $req->fetch()){
     if (!$data['nickname']) {
-      $data['nickname'] = 'Citoyen anonyme n°'.$data['userid'];
+      if ($data['userid'])
+        $data['nickname'] = 'Citoyen anonyme n°'.$data['userid'];
+      else $data['nickname'] = 'Citoyen virtuel';
     }
     array_push($tasks, $data);
   }
