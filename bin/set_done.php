@@ -7,13 +7,14 @@ function simplifystring($str) {
 	preg_replace('/u00ef/', 'i',
 	preg_replace('/u00e7/', 'c',
 	preg_replace('/u00f4/', 'o',
+	preg_replace('/neant/', '',
 	preg_replace('/u00e[89ba]/', 'e',
 	preg_replace('/u20ac/i', 'euros',
 	preg_replace('/euros?/i', 'euros',
 	preg_replace('/\\\\/', '',
 	preg_replace('/\\\[nr]/', '',
 	preg_replace('/[\(\), \.\-\/:\']/', '',
-		     strtolower($str)))))))))));
+		     strtolower($str))))))))))));
 }
 $sql = "SELECT id FROM documents WHERE done = 0 AND tries > 2";
 if (isset($argv[1])) {
@@ -123,7 +124,8 @@ while($doc = $req->fetch()) {
     }
   }
   if ($done) {
+    if (isset($argv[1])) echo "Done !\n";
     $req3 = $bdd->prepare("UPDATE documents SET done = 1, selected_task = :task_id WHERE id = :id");
-    $req3->execute(array('id' => $doc['id'], 'task_id' => $selected));
+    //    $req3->execute(array('id' => $doc['id'], 'task_id' => $selected));
   }
 }
