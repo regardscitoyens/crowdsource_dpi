@@ -6,13 +6,14 @@ function simplifystring($str) {
   return preg_replace('/u00e0/', 'a',
 	preg_replace('/u00ef/', 'i',
 	preg_replace('/u00e7/', 'c',
+	preg_replace('/u00f4/', 'o',
 	preg_replace('/u00e[89ba]/', 'e',
 	preg_replace('/u20ac/i', 'euros',
 	preg_replace('/euros?/i', 'euros',
 	preg_replace('/\\\\/', '',
 	preg_replace('/\\\[nr]/', '',
 	preg_replace('/[\(\), \.\-\/:\']/', '',
-		     strtolower($str))))))))));
+		     strtolower($str)))))))))));
 }
 $sql = "SELECT id FROM documents WHERE done = 0 AND tries > 2";
 if (isset($argv[1])) {
@@ -27,7 +28,7 @@ while($doc = $req->fetch()) {
   while($task = $req2->fetch()) {
     array_push($data, array('data' => $task['data'], 'id' => $task['id']));
   }
-  $eguals = 0;
+  $equals = 0;
   $done = 0;
   for($i = 0 ; $i < count($data) ; $i++) {
     $selected = null;
@@ -43,14 +44,15 @@ while($doc = $req->fetch()) {
 	print $sim." - $pc\n";
       }
       if (simplifystring($data[$i]['data']) == simplifystring($data[$y]['data'])) {
-	$eguals++;
+	$equals++;
 	$selected = $data[$i]['id'];
       }
       if ($pc > 98) {
-	$eguals += 0.5;
+	$equals += 0.5;
 	$select_pc = 1;
       }
-      if ($eguals > 2 && $selected) {
+      if ($equals > 2 && $selected) {
+	echo "DONE!\n";
 	$done = 1;
 	break 2;
       }
