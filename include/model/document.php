@@ -94,7 +94,7 @@ function get_document_tasks($id) {
   if (!$bdd) {
     return $tasks;
   }
-  $req = $bdd->prepare("SELECT t.id, t.created_at, t.data, t.userid, u.nickname FROM tasks t JOIN users u ON t.userid = u.id WHERE t.document_id = :id ORDER BY t.id");
+  $req = $bdd->prepare('SELECT t.id, t.created_at, t.data, t.userid, u.nickname FROM tasks t JOIN users u ON t.userid = u.id OR t.userid = "" WHERE t.document_id = :id GROUP BY t.id ORDER BY t.id');
   $req->execute(array('id' => $id));
   while($data = $req->fetch()){
     if (!$data['nickname']) {
