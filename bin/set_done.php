@@ -3,19 +3,22 @@
 include(__DIR__.'/../include/model/document.php');
 
 function simplifystring($str) {
-  return preg_replace('/u00e0/', 'a',
-	preg_replace('/u00ef/', 'i',
+  return preg_replace('/u00e[02]/', 'a',
+	preg_replace('/u00[ec]f/', 'i',
 	preg_replace('/u00e7/', 'c',
 	preg_replace('/u00f4/', 'o',
 	preg_replace('/u0153/', 'oe',
 	preg_replace('/neant/', '',
 	preg_replace('/(u00e[89ba]|u00c9)/', 'e',
 	preg_replace('/u20ac/i', 'euros',
+	preg_replace('/millions?/i', 'm',
 	preg_replace('/euros?/i', 'euros',
+	preg_replace('/env(irons?|\.)?/i', '~',
+	preg_replace('/u00b0/', 'er',
 	preg_replace('/\\\\/', '',
 	preg_replace('/\\\[nr]/', '',
-	preg_replace('/[\(\), \.\-\/:\'_\]\[\+]/', '',
-		     strtolower($str)))))))))))));
+	preg_replace('/[\(\), \.\-\/:\'_\]\[\+\?=]/', '',
+		     strtolower($str))))))))))))))));
 }
 $sql = "SELECT id FROM documents WHERE done = 0 AND tries > 2";
 if (isset($argv[1])) {
