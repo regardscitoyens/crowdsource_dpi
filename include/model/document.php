@@ -98,7 +98,9 @@ function get_document_tasks($id) {
   $req->execute(array('id' => $id));
   while($data = $req->fetch()){
     if (!$data['nickname']) {
-      $data['nickname'] = 'Citoyen anonyme n°'.$data['userid'];
+      if ($data['userid'])
+        $data['nickname'] = 'Citoyen anonyme n°'.$data['userid'];
+      else $data['nickname'] = 'Citoyen virtuel';
     }
     array_push($tasks, $data);
   }
