@@ -74,7 +74,7 @@ function users_top($limit = 5) {
   if (!$bdd) {
     return array(array('nickname' => 'truc', 'twitter' => 'http://twitter.com/truc', 'website' => 'http://site.com/'), array('nickname' => 'machin', 'twitter' => 'http://twitter.com/machin'));
   }
-  $req = $bdd->prepare("SELECT count(tasks.id) as nb, userid, users.nickname, twitter, website FROM users, tasks WHERE tasks.userid = users.id GROUP BY users.id ORDER BY count(tasks.id) DESC LIMIT ".$limit);
+  $req = $bdd->prepare("SELECT count(tasks.id) as nb, userid, users.nickname, twitter, website FROM users, tasks WHERE tasks.userid = users.id WHERE ip != 'VIRTUAL' GROUP BY users.id ORDER BY count(tasks.id) DESC LIMIT ".$limit);
   $req->execute();
   $top = array();
   while($data = $req->fetch()){
