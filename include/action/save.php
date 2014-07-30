@@ -8,7 +8,7 @@ if (isset($_GET['pb'])) {
   $token = $_POST['token'];
 }
 
-if ($token != $_SESSION['token'] || !$bdd) {
+if (1 || $token != $_SESSION['token'] || !$bdd) {
   $_SESSION['sent_ok'] = true;
   $_SESSION['token'] = null;
   header("Location: ./#crowdsource\n");
