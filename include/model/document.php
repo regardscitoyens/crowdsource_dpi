@@ -139,7 +139,7 @@ function get_nb_done() {
 
 
 function get_nb_documents() {
-  return 10920;
+  return 11057;
   global $bdd;
   if (!$bdd) {
     return 0;

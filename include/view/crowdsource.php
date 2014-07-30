@@ -2,7 +2,7 @@
       <?php if ($sent_ok) : ?>
         <div class="alert alert-info text-center" role="alert">
 <?php
-	 if (!isset($_SESSION['nickname'])) {
+	 if (0 && !isset($_SESSION['nickname'])) {
 	 echo "N'hésitez pas à <a href=\"#signin\" data-toggle=\"modal\" data-target=\"#signin\">vous enregistrer</a> pour apparaitre parmi les contributeurs de ce projet. ";
 	 }
      echo "Si vous souhaitez partager la section que vous venez de saisir, elle est <a href=\"".$_SESSION['lastpage']."\">consultable ici</a>.";
@@ -10,6 +10,9 @@
 ?>
 </div>
        <?php endif; ?>
+        <div class="alert alert-warning text-center" role="alert">
+       La saisie est terminée : les 11057 déclarations ont été saisie en moins d'une semaine par plus de 7 800 personnes.
+       </div>
        <div class="row">
          <div class="col-md-6">
 	   <?php
@@ -23,8 +26,8 @@
               Saisir les informations</small>
               </h3>
  	      <?php if (isset($sent_ok) && $sent_ok) : ?>
-                <div class="alert alert-success text-center" role="alert">
-                  Merci ! Votre saisie a bien été enregistrée.
+                <div class="alert alert-danger text-center" role="alert">
+                  Les saisies ne sont plus enregistrées
                 </div>
               <?php endif; ?>
 	   <?php if (!$nodoc) : ?>
