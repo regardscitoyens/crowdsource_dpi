@@ -13,7 +13,10 @@
 <?php
 $cururl = "http://" . $_SERVER['HTTP_HOST']  . $_SERVER['REQUEST_URI'];
 $baseurl = preg_replace("#/[^/]*$#", "/", $cururl);
+if (!$indexation):
 ?>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<? else: ?>
 <!-- Twitter metas -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@RegardsCitoyens">
@@ -31,7 +34,7 @@ $baseurl = preg_replace("#/[^/]*$#", "/", $cururl);
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="<?php echo $baseurl.$img; ?>" />
 <meta property="og:image:type" content="image/jpeg">
-
+<?php endif; ?>
 <style>
 .logo{float:right;height:50px;margin-right:6px;margin-top:2px;}
 .declaration{background: gray; padding: 10px;}

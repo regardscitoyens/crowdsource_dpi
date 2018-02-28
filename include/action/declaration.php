@@ -19,6 +19,11 @@ $numdone = $doc['done'];
 
 $menu_declaration = 1;
 
+$indexation = 1;
+if ($partie == 10) {
+	$indexation = 0;
+}
+
 if ($numdone || $_GET['showcontribs']) {
   $numerisations = get_document_tasks($doc['id']);
   $task = $doc['task'];
